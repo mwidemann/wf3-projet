@@ -52,6 +52,11 @@ class Livraison
      */
     private $ville;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $add_civilite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +142,18 @@ class Livraison
     public function setVille(string $ville): self
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getAddCivilite(): ?string
+    {
+        return $this->add_civilite;
+    }
+
+    public function setAddCivilite(string $add_civilite): self
+    {
+        $this->add_civilite = $add_civilite;
 
         return $this;
     }
