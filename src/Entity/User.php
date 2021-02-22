@@ -47,6 +47,11 @@ class User
      */
     private $current_livraison_id;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $civilite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class User
     public function setCurrentLivraisonId(?int $current_livraison_id): self
     {
         $this->current_livraison_id = $current_livraison_id;
+
+        return $this;
+    }
+
+    public function getCivilite(): ?string
+    {
+        return $this->civilite;
+    }
+
+    public function setCivilite(string $civilite): self
+    {
+        $this->civilite = $civilite;
 
         return $this;
     }
