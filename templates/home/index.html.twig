@@ -8,7 +8,7 @@
 
 </header>
 
-<main class="container-fluid"> <!-- ajouer la classe p-5 pour la version PC -->
+<main class="container-fluid"> <!-- ajouer la classe p-5 pour la version PC ?? -->
 
     <section id="diapo">
         
@@ -24,6 +24,7 @@
                 <a href="{{ path('carte') }}" class="btn btn-primary">Commander en ligne</a>
             </div>
          </div>
+         <!-- petit pb de padding sur l'image du resto, en version mobile -->
     </section>
 
     <section id="top_plats" class="row">
@@ -77,12 +78,12 @@
     </section>
 
     <section id="map" class="row">
-    <!-- Version PC -->
-        
-    <!-- Version mobile -->
         <div class="col-12 p-1 text-center"><h2>Informations</h2></center></div>
-        <img src="https://www.kpmindustries.com/wp-content/uploads/2018/08/Placeholder-Map-Image-768x409.png" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-        <div class="col-12 p-3 text-center">
+
+        <div class="col-xs-12 col-md-6 p-2 my-auto">
+            <img src="https://www.kpmindustries.com/wp-content/uploads/2018/08/Placeholder-Map-Image-768x409.png" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+        </div>
+        <div class="col-xs-12 col-md-6 p-3 text-center">
             <p>12 rue du Village</p>
             <p>12345 Ville</p>
             <p>01.23.45.67.89</p>
@@ -93,16 +94,11 @@
             <a href="#" class="btn btn-primary">Nous contacter</a>
             <br><br>
             <a href="#" class="btn btn-primary">Commander en ligne</a>
-        </div>
-
-     <!-- Informations  : à gauche une map fixe et à droite des infos -->       
+        </div>  
+        <!-- petit pb de padding sur l'image de la map, en version mobile -->
     </section>
 
     <section id="contact" class="row">
-    <!-- Version PC -->
-
-
-    <!-- Version mobile -->
         <div class="col-12 p-3 text-center">
             <h2>Nous contacter</h2>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus quia dicta soluta perspiciatis ducimus, placeat nam eius nisi obcaecati sequi eveniet aliquam molestias molestiae fuga temporibus assumenda, consequatur exercitationem optio! Iste distinctio animi, in earum nulla inventore aliquam neque quos provident deserunt maiores doloribus, voluptatem a molestiae praesentium adipisci obcaecati quam tenetur est?
