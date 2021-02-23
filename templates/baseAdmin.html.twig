@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Projet wf3 - groupe 4">
+        <meta name="author" content="Morgane, Antoine, Abdou, Maxime">
+
+        <title>Projet wf3 - admin - {% block title %}{% endblock %}</title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="{{ asset('css/styleAdmin.css') }}">
+
+        {% block stylesheets %}{% endblock %}
+        
+    </head>
+
+    <body>
+
+        <header class="container-fluid bg-dark text-center text-light p-3">
+            <h2>Projet wf3 - Espace administrateur</h2>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-1 bg-secondary text-center">
+                    <ul>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Produits</a></li>
+                        <li><a href="#">Utilisateurs</a></li>
+                        <li><a href="{{ path('home') }}">Retour au site</a></li>
+                    </ul>
+                </nav>
+                <div class="col-11 p-5">
+                    {% for label, messages in app.flashes(['success', 'danger']) %}
+                        {% for message in messages %}
+                            <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-3 rounded">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% block body %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+        {% block javascripts %}{% endblock %}
+
+        <footer class="container-fluid bg-dark text-center text-light">
+            <p>Copyright &copy; 2021 - Projet wf3 - Groupe 4</p>
+        </footer>
+        
+    </body>
+
+</html>

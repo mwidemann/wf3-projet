@@ -4,13 +4,17 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Rollerworks\Component\PasswordStrength\Validator\Constraints\PasswordStrength;
 
 class RegistrationFormType extends AbstractType
@@ -18,11 +22,41 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('civilite', ChoiceType::class, [
+                'choices' => [
+                    'Monsieur' => 'monsieur',
+                    'Madame' => 'madame',
+                ],
+                'label' => 'Civilité'
+            ])
+
+            ->add('nom', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Dupont'
+                ],
+                'label' => 'Nom'
+            ])
+
+            ->add('prenom', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Jean'
+                ],
+                'label' => 'Prénom'
+            ])
+
+            ->add('phone', TextType::class, [
+                'attr' => [
+                    'placeholder' => '0123456789'
+                ],
+                'label' => 'Téléphone'
+            ])
+
             ->add('email', EmailType::class, [
                 'attr' => [
                     'placeholder' => 'prenom.nom@domaine.com'
                 ]
             ])
+
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -49,6 +83,8 @@ class RegistrationFormType extends AbstractType
                 ],
                 'label' => 'Mot de passe'
             ])
+            
+
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -58,10 +94,8 @@ class RegistrationFormType extends AbstractType
                 ],
                 'label' => 'J\'accepte les conditions générales d\'utilisation'
             ])
-            ->add('inscription', SubmitType::class) // Je l'ai repris du cours, mais je ne sais pas à quoi correspond cette ligne
+            ->add('inscription', SubmitType::class)
         ;
-
-        // Il faudra sans doute ajouter toutes les autres données nécessaires pour l'entity user sous la même structure ?
     }
 
     public function configureOptions(OptionsResolver $resolver)

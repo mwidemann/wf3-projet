@@ -1,21 +1,82 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
 
-{% block title %}Register{% endblock %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Projet Wf3 - groupe 4">
+        <meta name="author" content="Morgane, Antoine, Abdou, Maxime">
 
-{% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+        <title>Projet Wf3 - {% block title %}Inscription{% endblock title %}</title>
 
-    <h1>Register</h1>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                text-decoration: none;
+                font-weight: lighter;
+            }
+            a {
+                color: #000;
+            }
+                a:hover {
+                    color: #888;
+                }
+            .copyright {
+                font-size: 0.75em;
+            }
+        </style>
+        {% block stylesheets %}{% endblock stylesheets %}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    </head>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-{% endblock %}
+    <body>
+
+        <header class="container-fluid bg-light p-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>Projet Wf3</h1>
+                </div>
+            </div>
+        </header>
+
+        {% block body %}
+
+            <main class="container-fluid p-5">
+
+                {% for flashError in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
+            
+                <div class="col-4 offset-4">
+
+                    <h2 class="text-center">Inscription</h2>
+
+                    {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.civilite) }}
+                        {{ form_row(registrationForm.nom) }}
+                        {{ form_row(registrationForm.prenom) }}
+                        {{ form_row(registrationForm.phone) }}
+                        {{ form_row(registrationForm.email) }}
+                        {{ form_row(registrationForm.plainPassword) }}
+                        {{ form_row(registrationForm.agreeTerms) }}
+                        <div class="text-right">
+                            {{ form_row(registrationForm.inscription) }}
+                        </div>
+                    {{ form_end(registrationForm) }}
+
+                    <div class="dropdown-divider my-3"></div>
+
+                    <p class="text-center">Déjà inscrit ? <a href="{{ path('app_login') }} " class="badge badge-success">Connectez-vous !</a></p>
+                </div>
+            </main>
+
+        {% endblock %}
+
+        <!-- <footer class="container-fluid bg-light">
+            
+        </footer> -->
+
+    </body>
