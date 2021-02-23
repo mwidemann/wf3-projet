@@ -104,10 +104,4 @@ class Authentificator extends AbstractFormLoginAuthenticator implements Password
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
-
-        /*
-        new PasswordStrength();
-    ```
-    - y ajouter les contraintes souhaitées (minLength, minStrength, messages...)
-    */
 }
