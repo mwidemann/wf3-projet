@@ -34,7 +34,7 @@
                         <td class="align-middle">Non</td>
                     {% endif %}
                     <td class="align-middle">
-                        <a href="#"><i class="fas fa-pen-square"></i></a> | 
+                        <a href="{{ path('article_update', {'id':article.id}) }}"><i class="fas fa-pen-square"></i></a> | 
                         <a href="{{ path('article_delete', {'id':article.id}) }}"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>

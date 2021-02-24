@@ -31,8 +31,10 @@ class ArticleAdminController extends AbstractController
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
-            if ($form->isValid()) {
+        if ($form->isSubmitted()) 
+        {
+            if ($form->isValid())
+            {
                 $infoImg = $form['photo']->getData(); // récupère les infos de l'image 1
                 $extensionImg = $infoImg->guessExtension(); // récupère le format de l'image 1
                 $nomImg = 'article-' . time() . '.' . $extensionImg; // compose un nom d'image unique
@@ -41,16 +43,46 @@ class ArticleAdminController extends AbstractController
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($article);
                 $manager->flush();
-                $this->addFlash(
-                    'success',
-                    'L\'article a bien été ajouté.'
-                );
-            } else {
-                $this->addFlash(
-                    'danger',
-                    'Une erreur est survenue lors de l\'ajout de l\'article.'
-                );
+
+                $this->addFlash('success', 'L\'article a bien été ajouté.');
+
             }
+            else
+                $this->addFlash('danger','Une erreur est survenue lors de l\'ajout de l\'article.');
+                
+            return $this->redirectToRoute('admin_articles');
+        }
+        return $this->render('admin/articleForm.html.twig', [
+            'articleForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/admin/articles/update-{id}", name="article_update")
+     */
+    public function updateArticle(ArticleRepository $articleRepository, $id, Request $request)
+    {
+        $article = $articleRepository->find($id);
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $oldNomImg = $article->getPhoto();
+            $oldCheminImg = $this->getParameter('dossier_photos_articles') . '/' . $oldNomImg;
+            if (file_exists($oldCheminImg))
+                unlink($oldCheminImg);
+            
+            $infoImg = $form['photo']->getData();
+            $extensionImg = $infoImg->guessExtension();
+            $nomImg = 'article-' . time() . '.' . $extensionImg;
+            $infoImg->move($this->getParameter('dossier_photos_articles'), $nomImg);
+            $article->setPhoto($nomImg);
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($article);
+            $manager->flush();
+
+            $this->addFlash('success', 'L\'article a bien été modifié.');
+
             return $this->redirectToRoute('admin_articles');
         }
         return $this->render('admin/articleForm.html.twig', [
@@ -72,10 +104,9 @@ class ArticleAdminController extends AbstractController
         $manager = $this->getDoctrine()->getManager();
         $manager->remove($article);
         $manager->flush();
-        $this->addFlash(
-            'success',
-            'L\'article a bien été supprimé.'
-        );
+
+        $this->addFlash('success','L\'article a bien été supprimé.');
+
         return $this->redirectToRoute('admin_articles');
     }
 }
