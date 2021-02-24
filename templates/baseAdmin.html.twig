@@ -29,8 +29,11 @@
                     <ul>
                         <li><a href="#">Accueil</a></li>
                         <li><a href="#">Produits</a></li>
-                        <li><a href="#">Utilisateurs</a></li>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li><a href="#">Utilisateurs</a></li>
+                        {% endif %}
                         <li><a href="{{ path('home') }}">Retour au site</a></li>
+                        <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                     </ul>
                 </nav>
                 <div class="col-11 p-5">
