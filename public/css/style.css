@@ -1,0 +1,8 @@
+#landingpage
+{
+    background-image: url("http://www.pngmagic.com/product_images/landing-page-banner-background-sm.jpg");
+    background-size: cover;
+    padding : 0;
+    height : 100vh;
+    width : 100%;
+}
