@@ -28,10 +28,14 @@
                     <td class="align-middle"><img src="{{ asset('img/articles/') ~ article.photo }}" alt="photo {{ article.artNom }}"></td>
                     <td class="align-middle">{{ article.prix }}</td>
                     <td class="align-middle">{{ article.cat1 }}, {{ article.cat2 }}, {{ article.cat3 }}</td>
-                    <td class="align-middle">{{ article.top }}</td>
+                    {% if (article.top) %}
+                        <td class="align-middle">Oui</td>
+                    {% else %}
+                        <td class="align-middle">Non</td>
+                    {% endif %}
                     <td class="align-middle">
                         <a href="#"><i class="fas fa-pen-square"></i></a> | 
-                        <a href="#"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{{ path('article_delete', {'id':article.id}) }}"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             {% endfor %}

@@ -43,12 +43,12 @@ class ArticleAdminController extends AbstractController
                 $manager->flush();
                 $this->addFlash(
                     'success',
-                    'L\' article a bien été ajouté.'
+                    'L\'article a bien été ajouté.'
                 );
             } else {
                 $this->addFlash(
                     'danger',
-                    'Une erreur est survenue lors de l\'ajout de l\'article'
+                    'Une erreur est survenue lors de l\'ajout de l\'article.'
                 );
             }
             return $this->redirectToRoute('admin_articles');
@@ -56,5 +56,26 @@ class ArticleAdminController extends AbstractController
         return $this->render('admin/articleForm.html.twig', [
             'articleForm' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/admin/articles/delete-{id}", name="article_delete")
+     */
+    public function deleteArticle(ArticleRepository $articleRepository, $id)
+    {
+        $article = $articleRepository->find($id);
+        $oldNomImg = $article->getPhoto();
+        $oldCheminImg = $this->getParameter('dossier_photos_articles') . '/' . $oldNomImg;
+        if (file_exists($oldCheminImg)) {
+            unlink($oldCheminImg);
+        }
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($article);
+        $manager->flush();
+        $this->addFlash(
+            'success',
+            'L\'article a bien été supprimé.'
+        );
+        return $this->redirectToRoute('admin_articles');
     }
 }
