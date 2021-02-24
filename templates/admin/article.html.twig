@@ -1,0 +1,49 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Produits{% endblock %}
+
+{% block body %}
+
+    <h2 class="pb-5">Liste des produits</h2>
+    
+    <table class="table table-bordered table-hover table-sm table-dark table-striped text-center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Photo</th>
+                <th>Prix</th>
+                <th>Catégories</th>
+                <th>Mise en avant</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td class="align-middle">{{ article.id }}</td>
+                    <td class="align-middle">{{ article.artNom }}</td>
+                    <td class="align-middle">{{ article.descri }}</td>
+                    <td class="align-middle"><img src="{{ asset('img/articles/') ~ article.photo }}" alt="photo {{ article.artNom }}"></td>
+                    <td class="align-middle">{{ article.prix }}</td>
+                    <td class="align-middle">{{ article.cat1 }}, {{ article.cat2 }}, {{ article.cat3 }}</td>
+                    {% if (article.top) %}
+                        <td class="align-middle">Oui</td>
+                    {% else %}
+                        <td class="align-middle">Non</td>
+                    {% endif %}
+                    <td class="align-middle">
+                        <a href="{{ path('article_update', {'id':article.id}) }}"><i class="fas fa-pen-square"></i></a> | 
+                        <a href="{{ path('article_delete', {'id':article.id}) }}"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-right">
+        <a href="{{ path('article_create') }}" class="btn btn-outline-dark">Ajouter un produit</a>
+    </div>
+
+{% endblock %}
