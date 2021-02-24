@@ -6,3 +6,23 @@
     height : 100vh;
     width : 100%;
 }
+
+
+/*¨MEDIA QUERIES */
+
+/* @media screen and (min-width: 900px) {
+
+    .carousel-container {
+        width: 100%;
+    }
+
+    #carouselExampleIndicators {
+        width: 50%;
+    }
+
+    .carousel-item .carousel-caption
+    {
+        color : red;
+    }
+
+} */
