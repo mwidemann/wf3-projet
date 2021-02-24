@@ -7,22 +7,13 @@
     width : 100%;
 }
 
+#page_carte
+{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
 
-/*¨MEDIA QUERIES */
-
-/* @media screen and (min-width: 900px) {
-
-    .carousel-container {
-        width: 100%;
-    }
-
-    #carouselExampleIndicators {
-        width: 50%;
-    }
-
-    .carousel-item .carousel-caption
-    {
-        color : red;
-    }
-
-} */
+.big_list
+{
+    padding-right: 0 !important;
+}
