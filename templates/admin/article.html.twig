@@ -23,9 +23,9 @@
             {% for article in articles %}
                 <tr>
                     <td class="align-middle">{{ article.id }}</td>
-                    <td class="align-middle">{{ article.art_nom }}</td>
+                    <td class="align-middle">{{ article.artNom }}</td>
                     <td class="align-middle">{{ article.descri }}</td>
-                    <td class="align-middle"><img src="{{ article.photo }}" alt="photo {{ article.art_nom }}"></td>
+                    <td class="align-middle"><img src="{{ asset('img/articles/') ~ article.photo }}" alt="photo {{ article.artNom }}"></td>
                     <td class="align-middle">{{ article.prix }}</td>
                     <td class="align-middle">{{ article.cat1 }}, {{ article.cat2 }}, {{ article.cat3 }}</td>
                     <td class="align-middle">{{ article.top }}</td>
@@ -39,7 +39,7 @@
     </table>
 
     <div class="text-right">
-        <a href="#" class="btn btn-outline-dark">Ajouter un produit</a>
+        <a href="{{ path('article_create') }}" class="btn btn-outline-dark">Ajouter un produit</a>
     </div>
 
 {% endblock %}

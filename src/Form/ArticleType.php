@@ -6,20 +6,74 @@ use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('art_nom')
-            ->add('descri')
-            ->add('photo')
-            ->add('prix')
-            ->add('cat1')
-            ->add('cat2')
-            ->add('cat3')
-            ->add('top')
+            ->add('artNom', TextType::class, [
+                'required' => true,
+                'label' => 'Nom',
+                'attr' => [
+                    'placeholder' => 'Ex.: Sushis saumon'
+                ]
+            ])
+            ->add('descri', TextType::class, [
+                'required' => true,
+                'label' => 'Description',
+                'attr' => [
+                    'placeholder' => 'Ex.: Sushis saumon'
+                ]
+            ])
+            ->add('photo', FileType::class, [
+                'help' => 'png, jpg ou jpeg - 1 Mo maximum',
+                'required' => true,
+                'mapped' => false,
+                'label' => 'Photo',
+            ])
+            ->add('prix', MoneyType::class, [
+                'required' => true,
+                'label' => 'Prix (€)',
+                'attr' => [
+                    'placeholder' => 'Ex.: 3.90',
+                    'min' => 0
+                ]
+            ])
+            ->add('cat1', TextType::class, [
+                'required' => true,
+                'label' => 'Catégorie 1',
+                'attr' => [
+                    'placeholder' => 'Ex.: Sushis'
+                ]
+            ])
+            ->add('cat2', TextType::class, [
+                'required' => false,
+                'label' => 'Catégorie 2',
+                'attr' => [
+                    'placeholder' => 'Ex.: Végétarien'
+                ]
+            ])
+            ->add('cat3', TextType::class, [
+                'required' => false,
+                'label' => 'Catégorie 3',
+                'attr' => [
+                    'placeholder' => 'Ex.: Poisson'
+                ]
+            ])
+            ->add('top', ChoiceType::class, [
+                'choices' => [
+                    'Oui' => 1,
+                    'Non' => 0,
+                ],
+                'label' => 'Mise en avant ?',
+            ])
+            ->add('valider', SubmitType::class)
         ;
     }
 
