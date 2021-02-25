@@ -10,7 +10,37 @@
 
         <div class="row">
 
-            <div class="col-6 my-3">
+            <div class="col-4 my-3">
+                {{ form_label(userAdminForm.civilite) }}
+                {{ form_widget(userAdminForm.civilite) }}
+            </div>
+
+            <div class="col-4 my-3">
+                {{ form_label(userAdminForm.nom) }}
+                {{ form_widget(userAdminForm.nom) }}
+            </div>
+
+            <div class="col-4 my-3">
+                {{ form_label(userAdminForm.prenom) }}
+                {{ form_widget(userAdminForm.prenom) }}
+            </div>
+
+            <div class="col-4 my-3">
+                {{ form_label(userAdminForm.phone) }}
+                {{ form_widget(userAdminForm.phone) }}
+            </div>
+
+            <div class="col-4 my-3">
+                {{ form_label(userAdminForm.email) }}
+                {{ form_widget(userAdminForm.email) }}
+            </div>
+
+            <div class="col-4 my-3">
+                {{ form_label(userAdminForm.plainPassword) }}
+                {{ form_widget(userAdminForm.plainPassword) }}
+            </div>
+
+            <div class="col-4 my-3">
                 {{ form_label(userAdminForm.roles) }}
                 {{ form_widget(userAdminForm.roles) }}
             </div>

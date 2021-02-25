@@ -3,18 +3,25 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/xampp/htdocs/wf3-projet/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/xampp/htdocs/wf3-projet/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% if app.user %}
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-4">
+                <p><a href="#">Information du compte</a></p>
+                <p><a href="#">Historique des commandes</a></p>
+            </div>
+            <div class="col-8">
+                <h3>Bienvenue {{ app.user.prenom }} !</h3>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="container-fluid text-center">
+        <h3 class="p-3">Vous devez vous connecter pour accéder à votre compte.</h3>
+        <a href="{{ path('app_login') }}"><button class="btn btn-light btn-outline-dark">Se connecter</button></a>
+        <a href="{{ path('app_register') }}"><button class="btn btn-light btn-outline-dark">Créer un compte</button></a>
+    </div>
+        
+{% endif %}
 {% endblock %}

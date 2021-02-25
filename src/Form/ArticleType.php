@@ -45,25 +45,34 @@ class ArticleType extends AbstractType
                     'min' => 0
                 ]
             ])
-            ->add('cat1', TextType::class, [
+            ->add('cat1', ChoiceType::class, [
                 'required' => true,
                 'label' => 'Catégorie 1',
-                'attr' => [
-                    'placeholder' => 'Ex.: Sushis'
+                'choices' => [
+                    'Sushis' => 'sushis',
+                    'Makis' => 'makis',
+                    'Yakitori' => 'yakitori',
+                    'Menu' => 'menu',
                 ]
             ])
-            ->add('cat2', TextType::class, [
+            ->add('cat2', ChoiceType::class, [
                 'required' => false,
                 'label' => 'Catégorie 2',
-                'attr' => [
-                    'placeholder' => 'Ex.: Végétarien'
+                'choices' => [
+                    'Sushis' => 'sushis',
+                    'Makis' => 'makis',
+                    'Yakitori' => 'yakitori',
+                    'Menu' => 'menu',
                 ]
             ])
-            ->add('cat3', TextType::class, [
+            ->add('cat3', ChoiceType::class, [
                 'required' => false,
                 'label' => 'Catégorie 3',
-                'attr' => [
-                    'placeholder' => 'Ex.: Poisson'
+                'choices' => [
+                    'Sushis' => 'sushis',
+                    'Makis' => 'makis',
+                    'Yakitori' => 'yakitori',
+                    'Menu' => 'menu',
                 ]
             ])
             ->add('top', ChoiceType::class, [
