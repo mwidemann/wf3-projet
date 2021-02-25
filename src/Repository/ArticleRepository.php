@@ -41,7 +41,8 @@ class ArticleRepository extends ServiceEntityRepository
     public function CatPlats()
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.cat1 = plats')
+            ->andWhere('a.cat1 = :val')
+            ->setParameter('val', "plats")
             ->groupBy('a.cat2')
             ->getQuery()
             ->getResult()
@@ -55,7 +56,8 @@ class ArticleRepository extends ServiceEntityRepository
     public function CatMenus()
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.cat1 = menus')
+            ->andWhere('a.cat1 = :val')
+            ->setParameter('val', "menus")
             ->groupBy('a.cat2')
             ->getQuery()
             ->getResult()
@@ -69,7 +71,8 @@ class ArticleRepository extends ServiceEntityRepository
     public function CatAccompagnements()
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.cat1 = accompagnements')
+            ->andWhere('a.cat1 = :val')
+            ->setParameter('val', "accompagnements")
             ->groupBy('a.cat2')
             ->getQuery()
             ->getResult()
@@ -83,7 +86,8 @@ class ArticleRepository extends ServiceEntityRepository
     public function CatBoissons()
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.cat1 = boissons')
+            ->andWhere('a.cat1 = :val')
+            ->setParameter('val', "boissons")
             ->groupBy('a.cat2')
             ->getQuery()
             ->getResult()
@@ -97,7 +101,8 @@ class ArticleRepository extends ServiceEntityRepository
     public function CatDesserts()
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.cat1 = desserts')
+        ->andWhere('a.cat1 = :val')
+        ->setParameter('val', "desserts")
             ->groupBy('a.cat2')
             ->getQuery()
             ->getResult()
