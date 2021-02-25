@@ -20,35 +20,27 @@
             <div class="container-fluid">
                 <div class="navbar-brand text-center">
                     <img src="#" alt="logo">
-                    <a href="#" class="font-weight-bold">Sushi</a>
-                    <p>adresse</p>
-                    <p>numéro de téléphone</p>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav d-flex">
-                      <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#">Accueil</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#">Restaurant</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#">Carte</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#">Informations</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#">Contact</a>
-                      </li>
-                    </ul>
-                </div>
-
-                <div class="nav navbar-nav navbar-right">
-                    <ul class="navbar-nav d-flex">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="#">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="#">Restaurant</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="#">Carte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="#">Informations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="#">Contact</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold" href="#">Mon compte</a>
                         </li>
@@ -57,46 +49,42 @@
                         </li>
                     </ul>
                 </div>
-            
             </div>   
         </nav>
 
         {% block body %}{% endblock %}
 
-        <footer class="container-fluid">
-            <div class="row p-5">
-                <div class="col-lg-4">
-                    <h3>Plan du site</h5>
-                    <ul>
-                        <li class="my-3"><a href="#">Accueil</a></li>
-                        <li class="my-3"><a href="#">Restaurant</a></li>
-                        <li class="my-3"><a href="#">Carte</a></li>
-                        <li class="my-3"><a href="#">Informations</a></li>
-                        <li class="my-3"><a href="#">Contact</a></li>
-                        <li class="my-3"><a href="#">Mentions légales</a></li>
-                        <li class="my-3"><a href="{{ path('admin') }}">Admin</a></li>
-                    </ul>
+        <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>Services</h3>
+                            <ul>
+                                <li><a href="#">Accueil</a></li>
+                                <li><a href="#">Restaurant</a></li>
+                                <li><a href="#">Carte</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>About</h3>
+                            <ul>
+                                <li><a href="#">Informations</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 item text">
+                            <h3>A propos </h3>
+                            <p>Nom du resto : Votre commande déposée devant votre porte par nos livreurs . Continuez à profiter en toute sécurité de vos sushis et plats JAP commandés dans l’un de nos restaurants à Paris et en Province</p>
+                        </div>
+    
+                        <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                    </div>
+                    <p class="col-12 text-center">Copyright © 2021 - Morgane, Antoine, Abdou, Maxime</p>
                 </div>
-                <div class="col-lg-4 my-auto text-center">
-                    <a href="#"><img src="#" alt="LOGO RESTO"></a>
-                    <p>Sushi</p>
-                </div>
-                <div class="col-4">
-                    <h3>Coordonnées</h3>
-                    <p>1 rue des poissons crus</p>
-                    <p>12345 Saumon-les-Rivières</p>
-                    <p>01.23.45.67.89</p>
-                    <p>sushi@resto.fr</p>
-                </div>
-            </div>
-            <div class="row copyright">
-                <div class="col-12 text-center">
-                    <p>Copyright © 2021 - Morgane, Antoine, Abdou, Maxime</p>
-                </div>
-            </div>
-        </footer>
-
-
+            </footer>
+        </div>
+        
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
