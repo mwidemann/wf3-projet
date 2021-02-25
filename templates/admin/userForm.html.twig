@@ -1,0 +1,26 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Utilisateur - formulaire{% endblock title %}
+
+{% block body %}
+
+    <h2 class="pb-5">{{ user.email }}</h2>
+
+    {{ form_start(userAdminForm) }}
+
+        <div class="row">
+
+            <div class="col-6 my-3">
+                {{ form_label(userAdminForm.roles) }}
+                {{ form_widget(userAdminForm.roles) }}
+            </div>
+
+            <div class="col-12 text-center">
+                {{ form_widget(userAdminForm.valider )}}
+            </div>
+
+        </div>
+
+    {{ form_end(userAdminForm) }}
+
+{% endblock %}
