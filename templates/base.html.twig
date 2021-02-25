@@ -27,28 +27,31 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav d-flex">
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#bienvenue">Accueil</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('home') }}">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#presentation">Restaurant</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('home') }}#presentation">Restaurant</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#autres_plats">Carte</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('carte') }}">Carte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#map">Informations</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('home') }}#map">Informations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#contact">Contact</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('home') }}#contact">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold" href="{{ path('user') }}">
-                                <img src="https://img.icons8.com/material-rounded/24/ffffff/user-male-circle.png"/>
-                                <p>Mon compte</p>
+                                <img src="https://img.icons8.com/material-rounded/25/ffffff/user-male-circle.png"/>
+                                Mon compte
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="">Ma commande</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('panier') }}">
+                                <img src="https://img.icons8.com/fluent-systems-filled/25/ffffff/shopping-bag.png"/>
+                                Ma commande
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -64,18 +67,15 @@
                         <div class="col-sm-6 col-md-3 item">
                             <h3>Services</h3>
                             <ul>
-                                <li><a href="#bienvenue">Accueil</a></li>
-                                <li><a href="#presentation">Restaurant</a></li>
-                                <li><a href="#autres_plats">Carte</a></li>
+                                <li><a href="{{ path('home') }}">Accueil</a></li>
+                                <li><a href="{{ path('home') }}#presentation">Restaurant</a></li>
+                                <li><a href="{{ path('carte') }}">Carte</a></li>
+                                <li><a href="{{ path('home') }}#contact">Contact</a></li>
                                 <li><a href="{{ path('admin') }}">Admin</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-6 col-md-3 item">
-                            <h3>About</h3>
-                            <ul>
-                                <li><a href="#map">Informations</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                            </ul>
+                            <h1>Logo</h1>
                         </div>
                         <div class="col-md-6 item text">
                             <h3>A propos </h3>
@@ -85,6 +85,8 @@
                         <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
                     </div>
                     <p class="col-12 text-center">Copyright © 2021 - Morgane, Antoine, Abdou, Maxime</p>
+                    <!-- <a href="https://icons8.com/icon/85147/male-user">Male User icon by Icons8</a> -->
+                    <!-- <a href="https://icons8.com/icon/Knsy1P7TC2mx/shopping-bag">Shopping Bag icon by Icons8</a> -->
                 </div>
             </footer>
         </div>
@@ -92,6 +94,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ asset('js/dropdown.js') }}"></script>
 
         {% block javascripts %}{% endblock %}
     </body>
