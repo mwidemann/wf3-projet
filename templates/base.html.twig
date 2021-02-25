@@ -27,19 +27,19 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav d-flex">
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="/">Accueil</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('home') }}">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#presentation">Restaurant</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('home') }}#presentation">Restaurant</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#autres_plats">Carte</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('carte') }}">Carte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#map">Informations</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('home') }}#map">Informations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#contact">Contact</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('home') }}#contact">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold" href="{{ path('user') }}">
@@ -67,18 +67,15 @@
                         <div class="col-sm-6 col-md-3 item">
                             <h3>Services</h3>
                             <ul>
-                                <li><a href="#bienvenue">Accueil</a></li>
-                                <li><a href="#presentation">Restaurant</a></li>
-                                <li><a href="#autres_plats">Carte</a></li>
+                                <li><a href="{{ path('home') }}">Accueil</a></li>
+                                <li><a href="{{ path('home') }}#presentation">Restaurant</a></li>
+                                <li><a href="{{ path('carte') }}">Carte</a></li>
+                                <li><a href="{{ path('home') }}#contact">Contact</a></li>
                                 <li><a href="{{ path('admin') }}">Admin</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-6 col-md-3 item">
-                            <h3>About</h3>
-                            <ul>
-                                <li><a href="#map">Informations</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                            </ul>
+                            <h1>Logo</h1>
                         </div>
                         <div class="col-md-6 item text">
                             <h3>A propos </h3>
