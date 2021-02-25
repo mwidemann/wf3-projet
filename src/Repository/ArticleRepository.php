@@ -33,6 +33,19 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    // /**
+    //  * @return Article[] Returns an array of Article objects
+    //  */
+    
+    public function findCatList()
+    {
+        return $this->createQueryBuilder('a')
+            ->groupBy('a.cat1')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     
 
     /*
