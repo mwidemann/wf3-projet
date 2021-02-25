@@ -27,25 +27,25 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav d-flex">
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#">Accueil</a>
+                            <a class="nav-link font-weight-bold" href="#bienvenue">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#">Restaurant</a>
+                            <a class="nav-link font-weight-bold" href="#presentation">Restaurant</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#">Carte</a>
+                            <a class="nav-link font-weight-bold" href="#autres_plats">Carte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#">Informations</a>
+                            <a class="nav-link font-weight-bold" href="#map">Informations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#">Contact</a>
+                            <a class="nav-link font-weight-bold" href="#contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#">Mon compte</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('user') }}">Mon compte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#">Ma commande</a>
+                            <a class="nav-link font-weight-bold" href="{{ path('panier') }}">Ma commande</a>
                         </li>
                     </ul>
                 </div>
@@ -61,17 +61,17 @@
                         <div class="col-sm-6 col-md-3 item">
                             <h3>Services</h3>
                             <ul>
-                                <li><a href="#">Accueil</a></li>
-                                <li><a href="#">Restaurant</a></li>
-                                <li><a href="#">Carte</a></li>
+                                <li><a href="#bienvenue">Accueil</a></li>
+                                <li><a href="#presentation">Restaurant</a></li>
+                                <li><a href="#autres_plats">Carte</a></li>
                                 <li><a href="{{ path('admin') }}">Admin</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-6 col-md-3 item">
                             <h3>About</h3>
                             <ul>
-                                <li><a href="#">Informations</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#map">Informations</a></li>
+                                <li><a href="#contact">Contact</a></li>
                             </ul>
                         </div>
                         <div class="col-md-6 item text">
