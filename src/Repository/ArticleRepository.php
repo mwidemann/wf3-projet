@@ -38,10 +38,72 @@ class ArticleRepository extends ServiceEntityRepository
     //  * @return Article[] Returns an array of Article objects
     //  */
     
-    public function findCatList()
+    public function CatPlats()
     {
         return $this->createQueryBuilder('a')
-            ->groupBy('a.cat1')
+            ->andWhere('a.cat1 = :val')
+            ->setParameter('val', "plats")
+            ->groupBy('a.cat2')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // /**
+    //  * @return Article[] Returns an array of Article objects
+    //  */
+    
+    public function CatMenus()
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.cat1 = :val')
+            ->setParameter('val', "menus")
+            ->groupBy('a.cat2')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // /**
+    //  * @return Article[] Returns an array of Article objects
+    //  */
+    
+    public function CatAccompagnements()
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.cat1 = :val')
+            ->setParameter('val', "accompagnements")
+            ->groupBy('a.cat2')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // /**
+    //  * @return Article[] Returns an array of Article objects
+    //  */
+    
+    public function CatBoissons()
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.cat1 = :val')
+            ->setParameter('val', "boissons")
+            ->groupBy('a.cat2')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // /**
+    //  * @return Article[] Returns an array of Article objects
+    //  */
+    
+    public function CatDesserts()
+    {
+        return $this->createQueryBuilder('a')
+        ->andWhere('a.cat1 = :val')
+        ->setParameter('val', "desserts")
+            ->groupBy('a.cat2')
             ->getQuery()
             ->getResult()
         ;

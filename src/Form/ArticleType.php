@@ -49,10 +49,11 @@ class ArticleType extends AbstractType
                 'required' => true,
                 'label' => 'Catégorie 1',
                 'choices' => [
-                    'Sushis' => 'sushis',
-                    'Makis' => 'makis',
-                    'Yakitori' => 'yakitori',
-                    'Menu' => 'menu',
+                    'Plats' => 'plats',
+                    'Menus' => 'menus',
+                    'Accompagnements' => 'accompagnements',
+                    'Boissons' => 'boissons',
+                    'Desserts' => 'desserts',
                 ]
             ])
             ->add('cat2', ChoiceType::class, [
@@ -62,7 +63,6 @@ class ArticleType extends AbstractType
                     'Sushis' => 'sushis',
                     'Makis' => 'makis',
                     'Yakitori' => 'yakitori',
-                    'Menu' => 'menu',
                 ]
             ])
             ->add('cat3', ChoiceType::class, [
@@ -72,7 +72,6 @@ class ArticleType extends AbstractType
                     'Sushis' => 'sushis',
                     'Makis' => 'makis',
                     'Yakitori' => 'yakitori',
-                    'Menu' => 'menu',
                 ]
             ])
             ->add('top', ChoiceType::class, [
