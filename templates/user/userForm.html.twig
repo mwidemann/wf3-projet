@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateur - Modification du compte{% endblock title %}
+
+{% block body %}
+
+    {{ form_start(userForm) }}
+
+        <div class="container p-5">
+            <h2 class="pb-5">Modification du compte</h2>
+            <div class="row">
+                <div class="col-6 my-3">
+                    {{ form_label(userForm.civilite) }}
+                    {{ form_widget(userForm.civilite) }}
+                </div>
+
+                <div class="col-6 my-3">
+                    {{ form_label(userForm.nom) }}
+                    {{ form_widget(userForm.nom) }}
+                </div>
+                
+                <div class="col-6 my-3">
+                    {{ form_label(userForm.prenom) }}
+                    {{ form_widget(userForm.prenom) }}
+                </div>
+                
+                <div class="col-6 my-3">
+                    {{ form_label(userForm.phone) }}
+                    {{ form_widget(userForm.phone) }}
+                </div>
+
+                <div class="col-6 my-3">
+                    {{ form_label(userForm.email) }}
+                    {{ form_widget(userForm.email) }}
+                </div>
+
+                <div class="col-6 my-3">
+                    {{ form_label(userForm.plainPassword) }}
+                    {{ form_widget(userForm.plainPassword) }}
+                </div>
+
+                {# <div class="col-6 text-center">
+                    <a href="{{ path('user') }}"><button class="btn btn-secondary">Retour</button></a>
+                </div> #}
+
+                <div class="col-12 text-center">
+                    {{ form_widget(userForm.valider )}}
+                </div>
+                
+
+            </div>
+        </div>
+    {{ form_end(userForm) }}
+
+{% endblock %}

@@ -23,7 +23,7 @@ class UserAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/users/update-{id}", name="user_update")
+     * @Route("/admin/users/update-{id}", name="userAdmin_update")
      */
     public function updateUser(UserRepository $userRepository, $id, Request $request)
     {
@@ -47,7 +47,7 @@ class UserAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/users/delete-{id}", name="user_delete")
+     * @Route("/admin/users/delete-{id}", name="userAdmin_delete")
      */
     public function deleteUser(UserRepository $userRepository, $id)
     {
