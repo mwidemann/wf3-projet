@@ -1,6 +1,9 @@
 #landingpage
 {
-    background-image: url("http://www.pngmagic.com/product_images/landing-page-banner-background-sm.jpg");
+    /* background-image: url("http://www.pngmagic.com/product_images/landing-page-banner-background-sm.jpg"); */
+    background-image: url("../img/landingpage5.jpg");
+    background-color: rgba(255, 255, 255, 0.5);
+    background-position: left center; /* à modifier pour la version mobile selon notre choix */
     background-size: cover;
     padding : 0;
     height : 100vh;
