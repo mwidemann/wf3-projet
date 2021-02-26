@@ -52,46 +52,74 @@
         </div>
 
         <div class="big_list col-md-9 row">
-                <div class="col-xs-12 col-md-4 my-auto">
-                    <img src="https://pokaa.fr/wp-content/uploads/2014/07/DSC_0506.jpg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-                    <span class="nom_plat"><strong>Nom du plat</strong></span>
-                    <div class="descri_plat">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, adipisci? Earum exercitationem pariatur eum saepe libero. Voluptatem suscipit ea fugiat provident veritatis animi repudiandae nesciunt, veniam debitis exercitationem recusandae itaque.</div>
-                    <br />
+            <div class="col-xs-12 col-md-4 my-auto">
+                <img src="https://pokaa.fr/wp-content/uploads/2014/07/DSC_0506.jpg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+                <span class="nom_plat"><strong>Nom du plat</strong></span>
+                <div class="descri_plat">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, adipisci? Earum exercitationem pariatur eum saepe libero. Voluptatem suscipit ea fugiat provident veritatis animi repudiandae nesciunt, veniam debitis exercitationem recusandae itaque.</div>
+                <br />
 
-                    <div class="d-flex justify-content-between">
-                        <label for="qty">Quantité :</label>
-                        <input id="qty" type="number" name="qty" value="0">
-                    </div>
-
-                    <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Ajouter au panier</a></div>
+                <div class="d-flex justify-content-between">
+                    <label for="qty">Quantité :</label>
+                    <input id="qty" type="number" name="qty" value="0">
                 </div>
-                <div class="col-xs-12 col-md-4 my-auto">
-                    <img src="https://pokaa.fr/wp-content/uploads/2014/07/DSC_0506.jpg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-                    <span class="nom_plat"><strong>Nom du plat</strong></span>
-                    <div class="descri_plat">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, adipisci? Earum exercitationem pariatur eum saepe libero. Voluptatem suscipit ea fugiat provident veritatis animi repudiandae nesciunt, veniam debitis exercitationem recusandae itaque.</div>
-                    <br />
 
-                    <div class="d-flex justify-content-between">
-                        <label for="qty">Quantité :</label>
-                        <input id="qty" type="number" name="qty" value="0">
-                    </div>
-
-                    <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Ajouter au panier</a></div>
-                </div>
-                <div class="col-xs-12 col-md-4 my-auto">
-                    <img src="https://pokaa.fr/wp-content/uploads/2014/07/DSC_0506.jpg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-                    <span class="nom_plat"><strong>Nom du plat</strong></span>
-                    <div class="descri_plat">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, adipisci? Earum exercitationem pariatur eum saepe libero. Voluptatem suscipit ea fugiat provident veritatis animi repudiandae nesciunt, veniam debitis exercitationem recusandae itaque.</div>
-                    <br />
-
-                    <div class="d-flex justify-content-between">
-                        <label for="qty">Quantité :</label>
-                        <input id="qty" type="number" name="qty" value="0">
-                    </div>
-
-                    <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Ajouter au panier</a></div>
-                    
+                <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Ajouter au panier</a></div>
             </div>
+            <div class="col-xs-12 col-md-4 my-auto">
+                <img src="https://pokaa.fr/wp-content/uploads/2014/07/DSC_0506.jpg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+                <span class="nom_plat"><strong>Nom du plat</strong></span>
+                <div class="descri_plat">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, adipisci? Earum exercitationem pariatur eum saepe libero. Voluptatem suscipit ea fugiat provident veritatis animi repudiandae nesciunt, veniam debitis exercitationem recusandae itaque.</div>
+                <br />
+
+                <div class="d-flex justify-content-between">
+                    <label for="qty">Quantité :</label>
+                    <input id="qty" type="number" name="qty" value="0">
+                </div>
+
+                <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Ajouter au panier</a></div>
+            </div>
+            <div class="col-xs-12 col-md-4 my-auto">
+                <img src="https://pokaa.fr/wp-content/uploads/2014/07/DSC_0506.jpg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+                <span class="nom_plat"><strong>Nom du plat</strong></span>
+                <div class="descri_plat">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, adipisci? Earum exercitationem pariatur eum saepe libero. Voluptatem suscipit ea fugiat provident veritatis animi repudiandae nesciunt, veniam debitis exercitationem recusandae itaque.</div>
+                <br />
+
+                <div class="d-flex justify-content-between">
+                    <label for="qty">Quantité :</label>
+                    <input id="qty" type="number" name="qty" value="0">
+                </div>
+
+                <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Ajouter au panier</a></div>
+            </div>
+
+
+
+            {# Test panier #}
+
+            {% for article in articles %}
+            
+            <div class="col-xs-12 col-md-4 my-auto">
+                <img src="{{ asset('img/articles/') ~ article.photo }}" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+                <span class="nom_plat"><strong>{{ article.artNom }}</strong></span>
+                <div class="descri_plat">{{ article.descri}}</div>
+                <br />
+
+                <div class="d-flex justify-content-between">
+                    <label for="qty">Quantité :</label>
+                    <input id="qty" type="number" name="qty" value="0">
+                </div>
+
+                <div class="col-12 text-center p-2"><a href="{{ path('panier_add', {'id':article.id}) }}" class="btn btn-primary">Ajouter au panier</a></div>
+            </div>
+
+            {% endfor %}
+
+            {# /Test panier #}
+
+
+
+
+
         </div>
     </div>
 </main>
