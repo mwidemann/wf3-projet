@@ -33,10 +33,9 @@ class HomeController extends AbstractController
                             'email' => $contact['email'],
                             'objet' => $contact['objet'],
                             'message' => $contact['message']
-                        ],
-                        'text/html'
-                    )
-
+                        ]
+                    ),
+                    'text/html'
                 )
             ;
             $mailer->send($mail);
