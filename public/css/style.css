@@ -60,6 +60,9 @@
   .sidebar_pc {
     display : none;
   }
+  #slider_pc {
+    display : none;
+  }
 }
 @media screen and (min-width: 701px) {
   .sidebar_mobile {
