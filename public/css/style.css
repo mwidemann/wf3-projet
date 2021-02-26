@@ -13,6 +13,11 @@
     margin-left: 0 !important;
 }
 
+/* Mets la première lettre de chaque mot en majuscule */
+.capitalize {
+  text-transform: capitalize;
+}
+
 .big_list
 {
     padding-right: 0 !important;

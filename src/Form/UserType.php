@@ -28,16 +28,10 @@ class UserType extends AbstractType
             ])
 
             ->add('nom', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Dupont'
-                ],
                 'label' => 'Nom'
             ])
 
             ->add('prenom', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Jean'
-                ],
                 'label' => 'Prénom'
             ])
 
@@ -50,9 +44,6 @@ class UserType extends AbstractType
 
             ->add('email', EmailType::class, [
                 'required' => false,
-                'attr' => [
-                    'placeholder' => 'prenom.nom@domaine.com'
-                ]
             ])
 
             ->add('plainPassword', PasswordType::class, [
@@ -64,13 +55,13 @@ class UserType extends AbstractType
                         'minStrength' => 4,
                         'message' => 'Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial'
                         ])
-                    ],
-                    'attr' => [
-                        'placeholder' => '••••••••'
-                    ],
-                    'label' => 'Mot de passe',
-                    'required' => false
-                    ])
+                ],
+                'attr' => [
+                    'placeholder' => '••••••••'
+                ],
+                'label' => 'Mot de passe',
+                'required' => false
+            ])
                     
             ->add('valider', SubmitType::class)
         ;
