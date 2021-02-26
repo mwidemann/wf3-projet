@@ -152,28 +152,41 @@
             <div class="col-12 text-center">
                 <h2>Nous contacter</h2>
             </div>
-            <div class="col-xs-12 col-md-6 offset-md-3">
-                    {{ form_start(contactForm) }}
+                {{ form_start(contactForm) }}
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-3 offset-lg-3 my-2">
+                            {{ form_label(contactForm.prenom) }}
+                            {{ form_widget(contactForm.prenom) }}
+                        </div>
+                       
+                        <div class="col-ms-12 col-md-6 col-lg-3 my-2">
+                            {{ form_label(contactForm.nom) }}
+                            {{ form_widget(contactForm.nom) }}
+                        </div>
 
-                       {{ form_label(contactForm.prenom) }}
-                       {{ form_widget(contactForm.prenom) }}
+                        <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">
+                            {{ form_label(contactForm.email) }}
+                            {{ form_widget(contactForm.email) }}
+                        </div>
 
-                       {{ form_label(contactForm.nom) }}
-                       {{ form_widget(contactForm.nom) }}
+                        <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">
+                            {{ form_label(contactForm.objet) }}
+                            {{ form_widget(contactForm.objet) }}
+                        </div>
 
-                       {{ form_label(contactForm.email) }}
-                       {{ form_widget(contactForm.email) }}
+                        <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">
+                            {{ form_label(contactForm.message) }}
+                            {{ form_widget(contactForm.message) }} 
+                        </div>
+                        
+                        <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">
+                            {{ form_widget(contactForm.envoyer) }}
+                        </div>
 
-                       {{ form_label(contactForm.objet) }}
-                       {{ form_widget(contactForm.objet) }}
+                    </div>  
 
-                       {{ form_label(contactForm.message) }}
-                       {{ form_widget(contactForm.message) }} 
-
-                       {{ form_widget(contactForm.envoyer) }}
-
-                    {{ form_end(contactForm) }}   
-            </div>
+                {{ form_end(contactForm) }}   
+            
     </section>
 </main>
 
