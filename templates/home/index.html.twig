@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 
@@ -154,6 +154,24 @@
             </div>
             <div class="col-xs-12 col-md-6 offset-md-3">
                     {{ form_start(contactForm) }}
+
+                       {{ form_label(contactForm.prenom) }}
+                       {{ form_widget(contactForm.prenom) }}
+
+                       {{ form_label(contactForm.nom) }}
+                       {{ form_widget(contactForm.nom) }}
+
+                       {{ form_label(contactForm.email) }}
+                       {{ form_widget(contactForm.email) }}
+
+                       {{ form_label(contactForm.objet) }}
+                       {{ form_widget(contactForm.objet) }}
+
+                       {{ form_label(contactForm.message) }}
+                       {{ form_widget(contactForm.message) }} 
+
+                       {{ form_widget(contactForm.envoyer) }}
+
                     {{ form_end(contactForm) }}   
             </div>
     </section>
