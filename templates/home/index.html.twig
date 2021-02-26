@@ -8,6 +8,8 @@
     section
     {
         min-height: 100vh;
+        position: relative;
+        top: 60px;
     }
 </style>
 
@@ -20,10 +22,13 @@
 </div>
 
 <main class="container-fluid p-xs-0 p-md-5">
-    <section id="presentation" class="for-scrollify">
-         <div class="row">
-            <div class="col-xs-12 col-md-6 my-auto"><img src="https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png" alt="lorem ipsum" title="lorem ipsum" class="w-100"></div>
-            <div class="col-xs-12 col-md-6 text-center">
+
+    <section id="presentation" class="for-scrollify d-flex">
+         <div class="row align-self-center col-md-12 justify-content-around">
+            <div class="col-xs-12 col-md-5 my-auto">
+                <img src="https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+            </div>
+            <div class="col-xs-12 col-md-5 text-center">
                 <h2>Le restaurant</h2>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus quia dicta soluta perspiciatis ducimus, placeat nam eius nisi obcaecati sequi eveniet aliquam molestias molestiae fuga temporibus assumenda, consequatur exercitationem optio! Iste distinctio animi, in earum nulla inventore aliquam neque quos provident deserunt maiores doloribus, voluptatem a molestiae praesentium adipisci obcaecati quam tenetur est? Reprehenderit laborum, accusamus, consequatur pariatur nihil vitae ratione ducimus veniam laudantium, optio corrupti ipsa delectus perspiciatis iste rem recusandae. Autem animi inventore deserunt, molestiae necessitatibus tempore delectus odio qui quibusdam recusandae eum pariatur accusamus eveniet dolor quas nobis iure possimus laboriosam aut sapiente minima ducimus ullam. Aperiam.
                 <br><br>
@@ -40,43 +45,49 @@
         <div class="col-12 text-center">
             <h2>En avant cette semaine</h2>
         </div>
-        <div class="carousel-container col-xs-12 col-md-6 ">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    {% set i = 0 %}
-                    {% for elem in topPlat %}              
-                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}" 
-                            {% if i == 0 %} 
-                                class="active" 
-                            {% endif %} >
-                        </li>
-                        {% set i = i + 1 %}
-                    {% endfor %}
-                </ol>
-                {% set j = 0 %}
-                <div class="carousel-inner">
-                    {% for elem in topPlat %}
-                        <div {% if j == 0 %} class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
-                            <img class="d-block w-100" src="{{ elem.photo }}" alt="{{ elem.artNom }}" title="{{ elem.artNom }}">
-                            <div class="carousel-caption d-md-block">
-                                <h5>{{ elem.artNom }}</h5>
-                                <p>{{ elem.descri }}.</p>
+
+        <div class="justify-content-around row col-md-12">
+            <div class="carousel-container col-xs-12 col-md-5 ">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {% set i = 0 %}
+                        {% for elem in topPlat %}              
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}" 
+                                {% if i == 0 %} 
+                                    class="active" 
+                                {% endif %} >
+                            </li>
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    </ol>
+                    {% set j = 0 %}
+                    <div class="carousel-inner">
+                        {% for elem in topPlat %}
+                            <div {% if j == 0 %} class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
+                                <img class="d-block w-100" src="{{ elem.photo }}" alt="{{ elem.artNom }}" title="{{ elem.artNom }}">
+                                <div class="carousel-caption d-md-block">
+                                    <h5>{{ elem.artNom }}</h5>
+                                    <p>{{ elem.descri }}.</p>
+                                </div>
                             </div>
-                        </div>
-                        {% set j = j + 1 %}
-                    {% endfor %}
+                            {% set j = j + 1 %}
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+            </div>
+            <div id="slider_pc" class="carousel-container col-xs-12 col-md-5 text-center">
+                <h5>Nom du plat</h5>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error voluptate similique facere ducimus aperiam dicta aliquid porro repellat numquam veniam, fugit beatae nobis quae modi at quibusdam ex corporis est!
             </div>
         </div>
-        <div class="carousel-container col-xs-12 col-md-6 "></div>
         <!-- Régler les éventuels bugs d'affichage en forçant la taille de l'img avec du css-->
     </section>
 
@@ -84,40 +95,44 @@
         <div class="col-12 text-center">
             <h2>La carte</h2>
         </div>
-        <div class="col-xs-12 col-md-4 my-auto">
-            <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-            <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Nos menus</a></div>
+
+        <div class="row align-self-center col-md-12 justify-content-around">
+            <div class="col-xs-12 col-md-3 my-auto">
+                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+                <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Nos menus</a></div>
+            </div>
+            <div class="col-xs-12 col-md-3 my-auto">
+                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+                <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Nos plats</a></div>
+            </div>
+            <div class="col-xs-12 col-md-3 my-auto">
+                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+                <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Desserts et boissons</a></div>
+            </div>
         </div>
-        <div class="col-xs-12 col-md-4 my-auto">
-            <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-            <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Nos plats</a></div>
-        </div>
-        <div class="col-xs-12 col-md-4 my-auto">
-            <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-            <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Desserts et boissons</a></div>
-        </div>
-        <br><br>
         <div class="col-12 text-center p-3"><a href="#" class="btn btn-primary">Commander en ligne</a></div>
     </section>
 
     <section id="map" class="row for-scrollify">
         <div class="col-12 text-center"><h2>Informations</h2></center></div>
 
-        <div class="col-xs-12 col-md-6 my-auto">
-            <img src="https://www.kpmindustries.com/wp-content/uploads/2018/08/Placeholder-Map-Image-768x409.png" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+        <div class="row align-self-center col-md-12 justify-content-around">
+            <div class="col-xs-12 col-md-5 my-auto">
+                <img src="https://www.kpmindustries.com/wp-content/uploads/2018/08/Placeholder-Map-Image-768x409.png" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+            </div>
+            <div class="col-xs-12 col-md-5 text-center">
+                <p>12 rue du Village</p>
+                <p>12345 Ville</p>
+                <p>01.23.45.67.89</p>
+                <p>prenom.nom@domaine.com</p>
+                <p>Horaires</p>
+                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem itaque sapiente a molestiae asperiores magni tenetur sint eum omnis optio.</div>
+                <br>
+                <a href="#" class="btn btn-primary">Nous contacter</a>
+                <br><br>
+                <a href="#" class="btn btn-primary">Commander en ligne</a>
+            </div>  
         </div>
-        <div class="col-xs-12 col-md-6 text-center">
-            <p>12 rue du Village</p>
-            <p>12345 Ville</p>
-            <p>01.23.45.67.89</p>
-            <p>prenom.nom@domaine.com</p>
-            <p>Horaires</p>
-            <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem itaque sapiente a molestiae asperiores magni tenetur sint eum omnis optio.</div>
-            <br>
-            <a href="#" class="btn btn-primary">Nous contacter</a>
-            <br><br>
-            <a href="#" class="btn btn-primary">Commander en ligne</a>
-        </div>  
         <!-- petit pb de padding sur l'image de la map, en version mobile -->
     </section>
  
