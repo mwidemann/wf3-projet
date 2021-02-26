@@ -17,9 +17,13 @@
         </div>
 
         <div class="col-3">
-            <p><a href="{{ path('user') }}">Informations</a></p>
-            <p><a href="#">Commandes</a></p>
-            <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
+            {% if (app.user) %}
+                <p><a href="{{ path('user') }}">Informations</a></p>
+                <p><a href="#">Commandes</a></p>
+                <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
+            {% else %}
+                <p><a href="{{ path('app_login') }}">Se connecter</a></p>
+            {% endif %}
         </div>
         <div class="col-9">
             
@@ -40,9 +44,9 @@
                         {% for item in items %}
                             <tr>
                                 <td>{{ item.article.artNom }}</td>
-                                <td>{{ item.article.prix }}</td>
+                                <td>{{ item.article.prix }} €</td>
                                 <td>{{ item.quantite }}</td>
-                                <td>{{ item.quantite * item.article.prix }}</td>
+                                <td>{{ item.quantite * item.article.prix }} €</td>
                                 <td>
                                     <a href="{{ path('panier_remove', {'id':item.article.id}) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                 </td>
@@ -52,7 +56,7 @@
                     <tfoot>
                         <tr>
                             <td class="text-right" colspan="3">Total : </td>
-                            <td>{{ total }}</td>
+                            <td>{{ total }} €</td>
                             <td></td>
                         </tr>
                     </tfoot>
