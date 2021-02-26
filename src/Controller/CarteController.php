@@ -12,19 +12,20 @@ class CarteController extends AbstractController
     /**
      * @Route("/carte", name="carte")
      */
-    public function index(ArticleRepository $ArticleRepository): Response
+    public function index(ArticleRepository $articleRepository): Response
     {
-        $catPlats = $ArticleRepository->CatPlats();
-        $catMenus = $ArticleRepository->CatMenus();
-        $catAccompagnements = $ArticleRepository->CatAccompagnements();
-        $catBoissons = $ArticleRepository->CatBoissons();
-        $catDesserts = $ArticleRepository->CatDesserts();
+        $catPlats = $articleRepository->CatPlats();
+        $catMenus = $articleRepository->CatMenus();
+        $catAccompagnements = $articleRepository->CatAccompagnements();
+        $catBoissons = $articleRepository->CatBoissons();
+        $catDesserts = $articleRepository->CatDesserts();
         return $this->render('carte/index.html.twig', [
             'catPlats' => $catPlats,
             'catMenus' => $catMenus,
             'catAccompagnements' => $catAccompagnements,
             'catBoissons' => $catBoissons,
             'catDesserts' => $catDesserts,
+            'articles' => $articleRepository->findAll(),
         ]);
     }
 }

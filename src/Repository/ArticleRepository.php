@@ -38,7 +38,7 @@ class ArticleRepository extends ServiceEntityRepository
     //  * @return Article[] Returns an array of Article objects
     //  */
     
-    public function CatPlats()
+    public function catPlats()
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.cat1 = :val')
@@ -53,7 +53,7 @@ class ArticleRepository extends ServiceEntityRepository
     //  * @return Article[] Returns an array of Article objects
     //  */
     
-    public function CatMenus()
+    public function catMenus()
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.cat1 = :val')
@@ -68,7 +68,7 @@ class ArticleRepository extends ServiceEntityRepository
     //  * @return Article[] Returns an array of Article objects
     //  */
     
-    public function CatAccompagnements()
+    public function catAccompagnements()
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.cat1 = :val')
@@ -83,7 +83,7 @@ class ArticleRepository extends ServiceEntityRepository
     //  * @return Article[] Returns an array of Article objects
     //  */
     
-    public function CatBoissons()
+    public function catBoissons()
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.cat1 = :val')
@@ -98,7 +98,7 @@ class ArticleRepository extends ServiceEntityRepository
     //  * @return Article[] Returns an array of Article objects
     //  */
     
-    public function CatDesserts()
+    public function catDesserts()
     {
         return $this->createQueryBuilder('a')
         ->andWhere('a.cat1 = :val')
