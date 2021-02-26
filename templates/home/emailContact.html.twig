@@ -1,0 +1,16 @@
+<div>
+    <p><b><u>Coordonnées du contact :</u></b></p>
+    <ul>
+        <li><b>Prénom : </b>{{ prenom|capitalize }}</li>
+        <li><b>Nom : </b>{{ nom|upper }}</li>
+        <li><b>Email : </b>{{ email }}</li>
+    </ul>
+</div>
+
+<div>
+    <p><b><u>Objet :</u> {{ objet }}</b></p>
+
+    <p><b><u>Message :</u></b></p>
+    <p>{{ message|nl2br }}</p>    
+</div>
+

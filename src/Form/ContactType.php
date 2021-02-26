@@ -37,7 +37,7 @@ class ContactType extends AbstractType
             ->add('message', TextareaType::class, [
                 'required' => true,
                 'attr' => [
-                    'minlength' => 50,
+                    'minlength' => 20,
                     'maxlength' => 500
                 ],
                 'help' => 'Maximum 500 caractères'
