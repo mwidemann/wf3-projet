@@ -44,6 +44,7 @@ class HomeController extends AbstractController
                 'Votre message a bien été envoyé'
             );
             return $this->redirectToRoute('home');
+            // $this->redirect($this->generateUrl('home', ['_fragment' => '#contact']));
         }
 
         return $this->render('home/index.html.twig', [
