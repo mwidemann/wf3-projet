@@ -4,7 +4,14 @@
 
 {% block body %}
 
-<div id="landingpage" class="d-flex justify-content-center">
+<style>
+    section
+    {
+        min-height: 100vh;
+    }
+</style>
+
+<div id="landingpage" class="d-flex justify-content-center for-scrollify">
   <div class="align-self-center">
       <h1 id="bienvenue">Bienvenue</h1>
       <br> <!-- On peut gérer le saut de ligne/l'espacement avec d'autres balises ou propriétés -->
@@ -13,7 +20,7 @@
 </div>
 
 <main class="container-fluid p-xs-0 p-md-5">
-    <section id="presentation">
+    <section id="presentation" class="for-scrollify">
          <div class="row">
             <div class="col-xs-12 col-md-6 my-auto"><img src="https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png" alt="lorem ipsum" title="lorem ipsum" class="w-100"></div>
             <div class="col-xs-12 col-md-6 text-center">
@@ -26,7 +33,7 @@
          <!-- petit pb de padding sur l'image du resto, en version mobile -->
     </section>
 
-    <section id="top_plats" class="row">
+    <section id="top_plats" class="row for-scrollify">
         <!-- Version PC -->
 
         <!-- Version mobile -->
@@ -73,7 +80,7 @@
         <!-- Régler les éventuels bugs d'affichage en forçant la taille de l'img avec du css-->
     </section>
 
-    <section id="autres_plats" class="row">
+    <section id="autres_plats" class="row for-scrollify">
         <div class="col-12 text-center">
             <h2>La carte</h2>
         </div>
@@ -93,7 +100,7 @@
         <div class="col-12 text-center p-3"><a href="#" class="btn btn-primary">Commander en ligne</a></div>
     </section>
 
-    <section id="map" class="row">
+    <section id="map" class="row for-scrollify">
         <div class="col-12 text-center"><h2>Informations</h2></center></div>
 
         <div class="col-xs-12 col-md-6 my-auto">
@@ -114,7 +121,7 @@
         <!-- petit pb de padding sur l'image de la map, en version mobile -->
     </section>
  
-    <section id="contact" class="row">
+    <section id="contact" class="row for-scrollify">
         <div class="col-4 offset-4">
             <h2 class="text-center">Nous contacter</h2>
             {{ form_start(contactForm) }}
@@ -122,5 +129,13 @@
         </div>
     </section>
 </main>
+
+<script>
+    jQuery(function() {
+      jQuery.scrollify({
+        section : ".for-scrollify",
+      });
+    });
+</script>
 
 {% endblock %}
