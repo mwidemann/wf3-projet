@@ -63,7 +63,11 @@
                 </table>
                 <div class="col-12 text-right p-3">
                     <a href="{{ path('carte') }}"><button class="btn btn-secondary">Continuer mes achats</button></a>
-                    <a href="#"><button class="btn btn-primary">Passer commande</button></a>
+                    {% if (app.user) %}
+                        <a href="#"><button class="btn btn-primary">Passer commande</button></a>
+                    {% else %}
+                        <a href="{{ path('app_login') }}"><button class="btn btn-primary">Passer commande</button></a>
+                    {% endif %}
                 </div>
             {% else %}
                 <h2 class="p-3">Votre panier est vide</h2>

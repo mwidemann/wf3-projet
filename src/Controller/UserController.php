@@ -35,7 +35,7 @@ class UserController extends AbstractController
             $manager->persist($user);
             $manager->flush();
 
-            $this->addFlash('success', 'L\'utilisateur a bien été modifié.');
+            $this->addFlash('success', 'Vos informations ont bien été modifiées.');
 
             return $this->redirectToRoute('user');
         }

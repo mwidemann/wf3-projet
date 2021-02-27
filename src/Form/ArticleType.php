@@ -82,15 +82,7 @@ class ArticleType extends AbstractType
                     'Menus bateaux' => 'menus bateaux', /*Menus*/
                 ]
             ])
-            // ->add('cat3', ChoiceType::class, [
-            //     'required' => false,
-            //     'label' => 'Catégorie 3',
-            //     'choices' => [
-            //         'Sushis' => 'sushis',
-            //         'Makis' => 'makis',
-            //         'Yakitori' => 'yakitori',
-            //     ]
-            // ])
+
             ->add('top', ChoiceType::class, [
                 'choices' => [
                     'Oui' => 1,
