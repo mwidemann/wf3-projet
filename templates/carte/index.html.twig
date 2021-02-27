@@ -4,14 +4,19 @@
 
 {% block body %}
 
-{% set categ = app.request.query.get("categ")  %}
+{% set categ1 = app.request.query.get("categ1")  %}
+{% set categ2 = app.request.query.get("categ2")  %}
 <header>
     <div class="col-12 text-center">
         <h2>
-            Nos 
-            {% if categ is empty %} plats
-            {% else %} {{app.request.query.get("categ")}}
-            {% endif %}
+            Nos
+            {% if categ1 is empty %}
+                    {% if categ2 is empty %} plats
+                    {% else %} {{ categ2 }}
+                    {% endif %}
+            {% else %}
+                {{ categ1 }}
+            {% endif %}    
         </h2>
     </div>
 </header>
@@ -23,33 +28,34 @@
             <button class="dropdown-btn">Nos plats<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catPlats %}
-                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
+                <a href="?categ1=plats">Tous nos plats</a>
             </div>            
               <button class="dropdown-btn">Nos menus<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catMenus %}
-                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
             </div>
             <hr>
             <button class="dropdown-btn">Accomapgnements<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catAccompagnements %}
-                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
             </div>            
               <button class="dropdown-btn">Boissons<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catBoissons %}
-                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
             </div>
             <hr>
             <button class="dropdown-btn">Desserts<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catDesserts %}
-                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
             </div>
         </div> 
@@ -60,10 +66,21 @@
 
         <div class="big_list col-md-9 row">
             {# Test panier #}
-
+            {% set fetcher = "" %}
             {% for article in articles %}
 
-                {% if article.cat2 == categ %}  <!--On cherche les plats dans la catégorie -->       
+                {% if categ1 is not empty %}
+                    {% set fetcher = categ1 %}
+                {% elseif categ1 is empty %}
+                    {% if categ2 is not empty %}
+                        {% set fetcher = categ2 %}
+                    {% else %}
+                        {% set fetcher = "Sushis" %}
+                    {% endif %}
+                {% endif %}
+
+
+                {% if article.cat1 == fetcher or article.cat2 == fetcher %}  <!--On cherche les plats dans la catégorie -->       
                     <div class="col-xs-12 col-md-4 my-auto">
                         <img src="{{ asset('img/articles/') ~ article.photo }}" alt="{{ article.artNom }}" title="{{ article.artNom }}" class="w-100">
                         <span class="nom_plat"><strong>{{ article.artNom }}</strong></span>
@@ -78,46 +95,7 @@
                         <div class="col-12 text-center p-2"><a href="{{ path('panier_add', {'id':article.id}) }}" class="btn btn-primary">Ajouter au panier</a></div>
                     </div>
 
-                {% elseif categ is empty %} <!-- On affiche quoi, par défaut ? -->
-                    <div class="col-xs-12 col-md-4 my-auto">
-                        <img src="https://pokaa.fr/wp-content/uploads/2014/07/DSC_0506.jpg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-                        <span class="nom_plat"><strong>Nom du plat</strong></span>
-                        <div class="descri_plat">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, adipisci? Earum exercitationem pariatur eum saepe libero. Voluptatem suscipit ea fugiat provident veritatis animi repudiandae nesciunt, veniam debitis exercitationem recusandae itaque.</div>
-                        <br />
-        
-                        <div class="d-flex justify-content-between">
-                            <label for="qty">Quantité :</label>
-                            <input id="qty" type="number" name="qty" value="0">
-                        </div>
-        
-                        <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Ajouter au panier</a></div>
-                    </div>
-                    <div class="col-xs-12 col-md-4 my-auto">
-                        <img src="https://pokaa.fr/wp-content/uploads/2014/07/DSC_0506.jpg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-                        <span class="nom_plat"><strong>Nom du plat</strong></span>
-                        <div class="descri_plat">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, adipisci? Earum exercitationem pariatur eum saepe libero. Voluptatem suscipit ea fugiat provident veritatis animi repudiandae nesciunt, veniam debitis exercitationem recusandae itaque.</div>
-                        <br />
-        
-                        <div class="d-flex justify-content-between">
-                            <label for="qty">Quantité :</label>
-                            <input id="qty" type="number" name="qty" value="0">
-                        </div>
-        
-                        <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Ajouter au panier</a></div>
-                    </div>
-                    <div class="col-xs-12 col-md-4 my-auto">
-                        <img src="https://pokaa.fr/wp-content/uploads/2014/07/DSC_0506.jpg" alt="lorem ipsum" title="lorem ipsum" class="w-100">
-                        <span class="nom_plat"><strong>Nom du plat</strong></span>
-                        <div class="descri_plat">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, adipisci? Earum exercitationem pariatur eum saepe libero. Voluptatem suscipit ea fugiat provident veritatis animi repudiandae nesciunt, veniam debitis exercitationem recusandae itaque.</div>
-                        <br />
-        
-                        <div class="d-flex justify-content-between">
-                            <label for="qty">Quantité :</label>
-                            <input id="qty" type="number" name="qty" value="0">
-                        </div>
-        
-                        <div class="col-12 text-center p-2"><a href="#" class="btn btn-primary">Ajouter au panier</a></div>
-                    </div>    
+ 
                 {% endif %}
             {% endfor %}
 
