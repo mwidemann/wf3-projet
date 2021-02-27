@@ -68,7 +68,7 @@
                         <div class="carousel-inner">
                             {% for elem in topPlat %}
                                 <div {% if j == 0 %} class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
-                                    <img class="d-block w-100" src="{{ elem.photo }}" alt="{{ elem.artNom }}" title="{{ elem.artNom }}">
+                                    <img class="d-block w-100" src="{{ asset('img/articles/') ~ elem.photo }}" alt="{{ elem.artNom }}" title="{{ elem.artNom }}">
                                     <div class="carousel-caption d-md-block">
                                         <h5>{{ elem.artNom }}</h5>
                                         <p>{{ elem.descri }}.</p>
