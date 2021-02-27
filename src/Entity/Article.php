@@ -47,10 +47,10 @@ class Article
      */
     private $cat2;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $cat3;
+    // /**
+    //  * @ORM\Column(type="string", length=255, nullable=true)
+    //  */
+    // private $cat3;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -134,17 +134,17 @@ class Article
         return $this;
     }
 
-    public function getCat3(): ?string
-    {
-        return $this->cat3;
-    }
+    // public function getCat3(): ?string
+    // {
+    //     return $this->cat3;
+    // }
 
-    public function setCat3(?string $cat3): self
-    {
-        $this->cat3 = $cat3;
+    // public function setCat3(?string $cat3): self
+    // {
+    //     $this->cat3 = $cat3;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getTop(): ?bool
     {

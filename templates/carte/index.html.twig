@@ -37,6 +37,7 @@
                 {% for elem in catMenus %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
+                <a href="?categ1=plats">Tous nos menus</a>
             </div>
             <hr>
             <button class="dropdown-btn">Accomapgnements<i class="fa fa-caret-down"></i></button>
@@ -44,12 +45,14 @@
                 {% for elem in catAccompagnements %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
+                <a href="?categ1=plats">Tous nos accompagnements</a>
             </div>            
               <button class="dropdown-btn">Boissons<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catBoissons %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
+                <a href="?categ1=plats">Toutes nos boissons</a>
             </div>
             <hr>
             <button class="dropdown-btn">Desserts<i class="fa fa-caret-down"></i></button>
@@ -57,6 +60,7 @@
                 {% for elem in catDesserts %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
+                <a href="?categ1=plats">Tous nos desserts</a>
             </div>
         </div> 
 
@@ -75,7 +79,7 @@
                     {% if categ2 is not empty %}
                         {% set fetcher = categ2 %}
                     {% else %}
-                        {% set fetcher = "Sushis" %}
+                        {% set fetcher = "plats" %}
                     {% endif %}
                 {% endif %}
 
