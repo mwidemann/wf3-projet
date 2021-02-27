@@ -3,9 +3,16 @@
 {% block title %}Hello CarteController!{% endblock %}
 
 {% block body %}
+
+{% set categ = app.request.query.get("categ")  %}
 <header>
     <div class="col-12 text-center">
-        <h2>Nos {Nom de la catégorie}</h2>
+        <h2>
+            Nos 
+            {% if categ is empty %} plats
+            {% else %} {{app.request.query.get("categ")}}
+            {% endif %}
+        </h2>
     </div>
 </header>
 
@@ -16,33 +23,33 @@
             <button class="dropdown-btn">Nos plats<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catPlats %}
-                    <a href="#">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
             </div>            
               <button class="dropdown-btn">Nos menus<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catMenus %}
-                    <a href="#">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
             </div>
             <hr>
             <button class="dropdown-btn">Accomapgnements<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catAccompagnements %}
-                    <a href="#">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
             </div>            
               <button class="dropdown-btn">Boissons<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catBoissons %}
-                    <a href="#">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
             </div>
             <hr>
             <button class="dropdown-btn">Desserts<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catDesserts %}
-                    <a href="#">{{ elem.cat2|capitalize }}</a>
+                    <a href="?categ={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
             </div>
         </div> 
@@ -99,9 +106,9 @@
             {% for article in articles %}
             
             <div class="col-xs-12 col-md-4 my-auto">
-                <img src="{{ asset('img/articles/') ~ article.photo }}" alt="lorem ipsum" title="lorem ipsum" class="w-100">
+                <img src="{{ asset('img/articles/') ~ article.photo }}" alt="{{ article.artNom }}" title="{{ article.artNom }}" class="w-100">
                 <span class="nom_plat"><strong>{{ article.artNom }}</strong></span>
-                <div class="descri_plat">{{ article.descri}}</div>
+                <div class="descri_plat">{{ article.descri }}</div>
                 <br />
 
                 <div class="d-flex justify-content-between">
