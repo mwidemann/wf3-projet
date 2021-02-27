@@ -57,7 +57,7 @@ class ArticleType extends AbstractType
                 ]
             ])
             ->add('cat2', ChoiceType::class, [
-                'required' => false,
+                'required' => true,
                 'label' => 'Catégorie 2',
                 'choices' => [
                     'Riz' => 'riz', /* accompagnements */
@@ -82,7 +82,6 @@ class ArticleType extends AbstractType
                     'Menus bateaux' => 'menus bateaux', /*Menus*/
                 ]
             ])
-
             ->add('top', ChoiceType::class, [
                 'choices' => [
                     'Oui' => 1,

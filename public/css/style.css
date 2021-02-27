@@ -15,13 +15,78 @@ body{
 {
     /* background-image: url("http://www.pngmagic.com/product_images/landing-page-banner-background-sm.jpg"); */
     background-image: url("../img/landingpage.jpg");
-    background-color: rgba(255, 255, 255, 0.5);
     background-position: left center; /* à modifier pour la version mobile selon notre choix */
     background-size: cover;
     padding : 0;
     height : 100vh;
     width : 100%;
+    margin-left: 0 !important;
 }
+
+#presentation
+{
+  background-image: url("../img/landingpage4.jpg");
+  background-position: left center; /* à modifier pour la version mobile selon notre choix */
+  background-size: cover;
+  padding : 0;
+  height : 100vh;
+  width : 100%;
+  margin-left: 0 !important;
+}
+
+#top_plats
+{
+  background-image: url("../img/landingpage6.jpg");
+  background-position: left center; /* à modifier pour la version mobile selon notre choix */
+  background-size: cover;
+  padding : 0;
+  height : 100vh;
+  width : 100%;  
+  margin-left: 0 !important;
+}
+
+#autres_plats
+{
+  background-image: url("../img/landingpage1.jpg");
+  background-position: left center; /* à modifier pour la version mobile selon notre choix */
+  background-size: cover;
+  padding : 0;
+  height : 100vh;
+  width : 100%;  
+  margin-left: 0 !important;
+}
+
+#map
+{
+  background-image: url("../img/landingpage2.jpg");
+  background-position: left center; /* à modifier pour la version mobile selon notre choix */
+  background-size: cover;
+  padding : 0;
+  height : 100vh;
+  width : 100%;  
+  margin-left: 0 !important;
+}
+
+#contact
+{
+  background-image: url("../img/landingpage3.jpg");
+  background-position: left center; /* à modifier pour la version mobile selon notre choix */
+  background-size: cover;
+  padding : 0;
+  height : 100vh;
+  width : 100%;  
+  margin-left: 0 !important;
+}
+
+.sous_section
+{
+  margin-top : 10vh;
+}
+
+.img_home
+{
+    box-shadow: 10px 5px 5px rgba(0,0,0,0.4);
+} 
 
 h1, h2
 {
