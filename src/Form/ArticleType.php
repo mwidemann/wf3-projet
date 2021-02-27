@@ -60,9 +60,26 @@ class ArticleType extends AbstractType
                 'required' => false,
                 'label' => 'Catégorie 2',
                 'choices' => [
-                    'Sushis' => 'sushis',
-                    'Makis' => 'makis',
-                    'Yakitori' => 'yakitori',
+                    'Riz' => 'riz', /* accompagnements */
+                    'Soupes' => 'soupes', /* accompagnements */
+                    'Nouilles' => 'nouilles', /* accompagnements */
+                    'Gyozas' => 'gyozas', /* accompagnements */
+                    'Salades' => 'Salades', /* accompagnements */
+                    'Yakitoris' => 'yakitoris', /* plats */
+                    'Sushis' => 'Sushis', /* plats */
+                    'Makis' => 'makis', /* plats */
+                    'Sashimis' => 'sashimis', /* plats */
+                    'Tempuras' => 'tempuras', /* plats */
+                    'Vins' => 'vins', /* boissons */
+                    'Bières' => 'bières', /* boissons */
+                    'Soft drinks' => 'soft drinks', /* boissons */
+                    'Desserts' => 'desserts',                   
+                    'Menus midi' => 'menu midi', /*Menus*/
+                    'Menus brochettes' => 'menus brochettes', /*Menus*/
+                    'Menus mixtes' => 'menus mixtes', /*Menus*/
+                    'Menus sushi' => 'menus sushi', /*Menus*/
+                    'Menus chirashi' => 'menus chirashi', /*Menus*/
+                    'Menus bateaux' => 'menus bateaux', /*Menus*/
                 ]
             ])
             ->add('cat3', ChoiceType::class, [
