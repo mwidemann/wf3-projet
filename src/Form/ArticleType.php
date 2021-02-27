@@ -64,9 +64,9 @@ class ArticleType extends AbstractType
                     'Soupes' => 'soupes', /* accompagnements */
                     'Nouilles' => 'nouilles', /* accompagnements */
                     'Gyozas' => 'gyozas', /* accompagnements */
-                    'Salades' => 'Salades', /* accompagnements */
+                    'Salades' => 'salades', /* accompagnements */
                     'Yakitoris' => 'yakitoris', /* plats */
-                    'Sushis' => 'Sushis', /* plats */
+                    'Sushis' => 'sushis', /* plats */
                     'Makis' => 'makis', /* plats */
                     'Sashimis' => 'sashimis', /* plats */
                     'Tempuras' => 'tempuras', /* plats */
