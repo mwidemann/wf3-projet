@@ -1,0 +1,57 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Produit - formulaire{% endblock title %}
+
+{% block body %}
+
+    <h2 class="pb-5">Formulaire - Produit</h2>
+
+    {{ form_start(articleUpdateForm) }}
+
+        <div class="row">
+
+            <div class="col-6 my-3">
+                {{ form_label(articleUpdateForm.artNom) }}
+                {{ form_widget(articleUpdateForm.artNom) }}
+            </div>
+            
+            <div class="col-6 my-3">
+                {{ form_label(articleUpdateForm.descri) }}
+                {{ form_widget(articleUpdateForm.descri) }}
+            </div>
+
+            <div class="col-6 my-3">
+                {{ form_label(articleUpdateForm.photo ) }}
+                {{ form_widget(articleUpdateForm.photo ) }}
+                {{ form_help(articleUpdateForm.photo) }}
+            </div>
+
+            <div class="col-6 my-3">
+                {{ form_label(articleUpdateForm.prix ) }}
+                {{ form_widget(articleUpdateForm.prix ) }}
+            </div>
+
+            <div class="col-4 my-3">
+                {{ form_label(articleUpdateForm.cat1 ) }}
+                {{ form_widget(articleUpdateForm.cat1 ) }}
+            </div>
+
+            <div class="col-4 my-3">
+                {{ form_label(articleUpdateForm.cat2 ) }}
+                {{ form_widget(articleUpdateForm.cat2 ) }}
+            </div>
+
+            <div class="col-4 my-3">
+                {{ form_label(articleUpdateForm.top ) }}
+                {{ form_widget(articleUpdateForm.top ) }}
+            </div>
+
+            <div class="col-12 text-center">
+                {{ form_widget(articleUpdateForm.valider )}}
+            </div>
+
+        </div>
+
+    {{ form_end(articleUpdateForm) }}
+
+{% endblock %}
