@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adresses utilisateur{% endblock %}
+
+{% block body %}
+
+{% if app.user %}
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-12">
+                {% for label, messages in app.flashes(['success', 'danger']) %}
+                    {% for message in messages %}
+                        <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-3 rounded">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+            <div class="col-3">
+                <p><a href="{{ path('user') }}">Informations</a></p>
+                <p><a href="{{ path('user_adresses') }}">Adresses</a></p>
+                <p><a href="#">Commandes</a></p>
+                <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
+            </div>
+            <div class="col-9">
+                <h2 class="p-3">Bienvenue {{ app.user.prenom }} !</h2>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="p-3">Gérer mes adresses</h3>
+                    </div>
+                    
+                    {% for adresse_id in adresses_id %}
+                        {% for adresse in adresses %}
+                            {% if (adresse.id == adresse_id.livraisonId) %}
+                                <div class="col-12">
+                                    <h2 class="p-3">{{ adresse.denomination }}</h2>
+                                </div>
+
+                                <div class="col-6">
+                                    <ul>
+                                        <li>Civilité :</li>
+                                        <li>Nom :</li>
+                                        <li>Prénom :</li>
+                                        <li>Adresse :</li>
+                                        <li>Code postal :</li>
+                                        <li>Ville :</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-6">
+                                    <ul>
+                                        <li>{{ adresse.addCivilite }}</li>
+                                        <li>{{ adresse.addNom }}</li>
+                                        <li>{{ adresse.addPrenom }}</li>
+                                        <li>{{ adresse.adresse }}</li>
+                                        <li>{{ adresse.cp }}</li>
+                                        <li>{{ adresse.ville }}</li>
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+
+
+                    <div class="col-12 text-center p-3">
+                        <a href="{{ path('adresse_create') }}"><button class="btn btn-light btn-outline-dark">Ajouter une adresse</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="container text-center p-5">
+        <h3 class="pb-5">Vous devez vous connecter pour accéder à votre compte.</h3>
+        <a href="{{ path('app_login') }}"><button class="btn btn-light btn-outline-dark">Se connecter</button></a>
+        <a href="{{ path('app_register') }}"><button class="btn btn-light btn-outline-dark">Créer un compte</button></a>
+    </div>
+        
+{% endif %}
+{% endblock %}

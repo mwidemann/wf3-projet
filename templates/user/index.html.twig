@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
 
@@ -19,6 +19,7 @@
 
             <div class="col-3">
                 <p><a href="{{ path('user') }}">Informations</a></p>
+                <p><a href="{{ path('user_adresses') }}">Adresses</a></p>
                 <p><a href="#">Commandes</a></p>
                 <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
             </div>
@@ -50,7 +51,7 @@
                     </div>
 
                     <div class="col-12 text-center p-3">
-                        <a href="{{ path('user_update', {'id':app.user.id}) }}"><button class="btn btn-light btn-outline-dark">Modifier les informations</button></a>
+                        <a href="{{ path('user_update', {'id':app.user.id}) }}"><button class="btn btn-light btn-outline-dark">Modifier mes informations</button></a>
                     </div>
                 </div>
             </div>

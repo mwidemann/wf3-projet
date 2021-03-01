@@ -19,6 +19,16 @@ class UserLivraisonRepository extends ServiceEntityRepository
         parent::__construct($registry, UserLivraison::class);
     }
 
+    public function findAdresses($user_id)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.user_id = :val')
+            ->setParameter('val', $user_id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return UserLivraison[] Returns an array of UserLivraison objects
     //  */
