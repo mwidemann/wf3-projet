@@ -23,33 +23,34 @@
 
 <main class="p-xs-0 p-md-5">
     <div class="row" id="page_carte">
+
+        <!-- Liste des catégories version PC -->
         <div class="sidebar_pc col-md-3">
-            <!-- faire une rq par cat, pour afficher la liste en dessus en scrolldown -->
             <button class="dropdown-btn">Nos plats<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in catPlats %}
+                {% for elem in CatPlats %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Tous nos plats</a>
             </div>            
               <button class="dropdown-btn">Nos menus<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in catMenus %}
+                {% for elem in CatMenus %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Tous nos menus</a>
             </div>
             <hr>
-            <button class="dropdown-btn">Accomapgnements<i class="fa fa-caret-down"></i></button>
+            <button class="dropdown-btn">Accompagnements<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in catAccompagnements %}
+                {% for elem in CatAccompagnements %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Tous nos accompagnements</a>
             </div>            
               <button class="dropdown-btn">Boissons<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in catBoissons %}
+                {% for elem in CatBoissons %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Toutes nos boissons</a>
@@ -57,15 +58,22 @@
             <hr>
             <button class="dropdown-btn">Desserts<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in catDesserts %}
+                {% for elem in CatDesserts %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Tous nos desserts</a>
             </div>
         </div> 
 
+        <!-- Liste des catégories version mobile -->
         <div class="sidebar_mobile">
-            Sidebar version mobile
+            <ul>
+               <li><a href="?categ1=plats">Plats</a></li>
+               <li><a href="?categ1=menus">Menus</a></li>
+               <li><a href="?categ1=accompagnements">Accompagnements</a></li>
+               <li><a href="?categ1=boissons">Boissons</a></li>
+               <li><a href="?categ1=desserts">Desserts</a></li>
+            </ul>
         </div>
 
         <div class="big_list col-md-9 row">

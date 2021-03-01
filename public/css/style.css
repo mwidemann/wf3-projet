@@ -160,6 +160,23 @@ h1, h2
     padding-right: 8px;
   }
 
+  .sidebar_mobile ul
+  {
+    padding-left: 10px;
+  }
+  .sidebar_mobile ul li
+  {
+    list-style: none;
+    display: inline;
+  }
+  .sidebar_mobile ul li a
+  {
+    text-decoration: none;
+    padding : 5px;
+    color : #818181;
+    font-weight: bold;
+  }
+
   
 @media screen and (max-width: 700px) {
   .sidebar_pc {
