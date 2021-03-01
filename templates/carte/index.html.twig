@@ -11,9 +11,11 @@
         <h2>
             Nos
             {% if categ1 is empty %}
-                    {% if categ2 is empty %} plats
-                    {% else %} {{ categ2 }}
-                    {% endif %}
+                {% if categ2 is empty %}
+                    plats
+                {% else %}
+                    {{ categ2 }}
+                {% endif %}
             {% else %}
                 {{ categ1 }}
             {% endif %}    

@@ -44,6 +44,9 @@
                                         <li>Nom :</li>
                                         <li>Prénom :</li>
                                         <li>Adresse :</li>
+                                        {% if adresse.complement %}
+                                            <li>Complément :</li>
+                                        {% endif %}
                                         <li>Code postal :</li>
                                         <li>Ville :</li>
                                     </ul>
@@ -51,17 +54,20 @@
 
                                 <div class="col-6">
                                     <ul>
-                                        <li>{{ adresse.addCivilite }}</li>
-                                        <li>{{ adresse.addNom }}</li>
-                                        <li>{{ adresse.addPrenom }}</li>
+                                        <li>{{ adresse.addCivilite|capitalize }}</li>
+                                        <li>{{ adresse.addNom|capitalize }}</li>
+                                        <li>{{ adresse.addPrenom|capitalize }}</li>
                                         <li>{{ adresse.adresse }}</li>
+                                        {% if adresse.complement %}
+                                            <li>{{ adresse.complement }}</li>
+                                        {% endif %}
                                         <li>{{ adresse.cp }}</li>
-                                        <li>{{ adresse.ville }}</li>
+                                        <li>{{ adresse.ville|capitalize }}</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-12 p-3">
-                                    <a href="#"><button class="btn btn-danger btn-sm">Supprimer cette adresse</button></a>
+                                    <a href="{{ path('adresse_delete', {'id':adresse_id.id}) }}"><button class="btn btn-danger btn-sm">Supprimer cette adresse</button></a>
                                 </div>
                             {% endif %}
                         {% endfor %}

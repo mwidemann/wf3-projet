@@ -1,20 +1,95 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LivraisonController!{% endblock %}
+{% block title %}Hello PanierController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="container p-5">
+    <div class="row">
+        <div class="col-12">
+            {% for label, messages in app.flashes(['success', 'danger']) %}
+                {% for message in messages %}
+                    <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-3 rounded">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/xampp/htdocs/wf3-projet/src/Controller/LivraisonController.php'|file_link(0) }}">src/Controller/LivraisonController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/xampp/htdocs/wf3-projet/templates/livraison/index.html.twig'|file_link(0) }}">templates/livraison/index.html.twig</a></code></li>
-    </ul>
+        <div class="col-12">
+            <h2 class="p-3">Votre commande</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>{{ item.article.artNom }}</td>
+                            <td>{{ item.article.prix }} €</td>
+                            <td>{{ item.quantite }}</td>
+                            <td>{{ item.quantite * item.article.prix }} €</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="text-right" colspan="3">Total : </td>
+                        <td>{{ total }} €</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="col-12">
+            {% for adresse_id in adresses_id %}
+                {% for adresse in adresses %}
+                    {% if (adresse.id == adresse_id.livraisonId) %}
+                        <div class="col-12">
+                            <h2 class="p-3">{{ adresse.denomination }}</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <ul>
+                                    <li>Civilité :</li>
+                                    <li>Nom :</li>
+                                    <li>Prénom :</li>
+                                    <li>Adresse :</li>
+                                    {% if adresse.complement %}
+                                        <li>Complément :</li>
+                                    {% endif %}
+                                    <li>Code postal :</li>
+                                    <li>Ville :</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-6">
+                                <ul>
+                                    <li>{{ adresse.addCivilite|capitalize }}</li>
+                                    <li>{{ adresse.addNom|capitalize }}</li>
+                                    <li>{{ adresse.addPrenom|capitalize }}</li>
+                                    <li>{{ adresse.adresse }}</li>
+                                    {% if adresse.complement %}
+                                        <li>{{ adresse.complement }}</li>
+                                    {% endif %}
+                                    <li>{{ adresse.cp }}</li>
+                                    <li>{{ adresse.ville|capitalize }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+            <div class="col-12 text-right p-3">
+                <a href="#"><button class="btn btn-primary">Valider ma commande</button></a>
+            </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}

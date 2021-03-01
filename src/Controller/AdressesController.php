@@ -21,6 +21,7 @@ class AdressesController extends AbstractController
     {
         $adresses_id = $userLivraisonRepository->findAdresses($this->getUser()->getId());
         $adresses = $livraisonRepository->findAll();
+        
 
         return $this->render('user/adresses.html.twig', [
             'adresses_id' => $adresses_id,
@@ -60,5 +61,23 @@ class AdressesController extends AbstractController
         return $this->render('user/adresseForm.html.twig', [
             'adresseForm' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/user/adresses/delete-{id}", name="adresse_delete")
+     */
+    public function deleteAdresse(LivraisonRepository $livraisonRepository, UserLivraisonRepository $userLivraisonRepository, $id)
+    {
+        $userLivraison = $userLivraisonRepository->find($id);
+        $adresse = $livraisonRepository->find($userLivraison->getLivraisonId());
+
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($userLivraison);
+        $manager->remove($adresse);
+        $manager->flush();
+
+        $this->addFlash('success','L\'adresse a bien été supprimé.');
+
+        return $this->redirectToRoute('user_adresses');
     }
 }

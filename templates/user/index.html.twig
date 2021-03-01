@@ -42,9 +42,9 @@
 
                     <div class="col-6">
                         <ul>
-                            <li class="capitalize">{{ app.user.civilite }}</li>
-                            <li class="capitalize">{{ app.user.nom }}</li>
-                            <li class="capitalize">{{ app.user.prenom }}</li>
+                            <li>{{ app.user.civilite|capitalize }}</li>
+                            <li>{{ app.user.nom|capitalize }}</li>
+                            <li>{{ app.user.prenom|capitalize }}</li>
                             <li>{{ app.user.phone }}</li>
                             <li>{{ app.user.email }}</li>
                         </ul>
