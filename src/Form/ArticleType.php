@@ -65,7 +65,7 @@ class ArticleType extends AbstractType
                     'Nouilles' => 'nouilles', /* accompagnements */
                     'Gyozas' => 'gyozas', /* accompagnements */
                     'Salades' => 'salades', /* accompagnements */
-                    'Yakitoris' => 'yakitoris', /* plats */
+                    'Brochettes' => 'brochettes', /* plats */
                     'Sushis' => 'sushis', /* plats */
                     'Makis' => 'makis', /* plats */
                     'Sashimis' => 'sashimis', /* plats */
@@ -78,7 +78,6 @@ class ArticleType extends AbstractType
                     'Menus brochettes' => 'menus brochettes', /*Menus*/
                     'Menus mixtes' => 'menus mixtes', /*Menus*/
                     'Menus sushi' => 'menus sushi', /*Menus*/
-                    'Menus chirashi' => 'menus chirashi', /*Menus*/
                     'Menus bateaux' => 'menus bateaux', /*Menus*/
                 ]
             ])

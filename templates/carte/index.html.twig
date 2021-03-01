@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CarteController!{% endblock %}
+{% block title %}Notre carte{% endblock %}
 
 {% block body %}
 
@@ -101,12 +101,12 @@
                         <div class="descri_plat">{{ article.descri }}</div>
                         <br />
 
-                        <div class="d-flex justify-content-between">
+                        {# <div class="d-flex justify-content-between">
                             <label for="qty">Quantité :</label>
                             <input id="qty" type="number" name="qty" value="0">
-                        </div>
+                        </div> #}
 
-                        <div class="col-12 text-center p-2"><a href="{{ path('panier_add', {'id':article.id}) }}" class="btn btn-primary">Ajouter au panier</a></div>
+                        <div class="col-12 text-center p-2"><a href="{{ path('panier_add', {'id':article.id}) }}" class="btn btn-dark">Ajouter au panier</a></div>
                     </div>
 
  
