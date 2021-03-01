@@ -151,11 +151,11 @@
                 <h2>Nous contacter</h2>
             </div>
                 {% for label, messages in app.flashes(['success', 'danger']) %}
-                    {% for message in messages %}
-                        <div class="flash-{{ label }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
+                        {% for message in messages %}
+                            <div class="flash-{{ label }} bg-{{ label }} text-light text-center p-3 mb-3 rounded">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
                 {% endfor %}
                 {{ form_start(contactForm) }}
                     <div class="row">
