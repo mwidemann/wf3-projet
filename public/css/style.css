@@ -144,8 +144,8 @@ h1, h2
   }
   
   /* On mouse-over */
-  .sidebar_pc a:hover, .dropdown-btn:hover {
-    color: #f1f1f1;
+  .sidebar_pc a:hover, .sidebar_mobile a:hover, .dropdown-btn:hover {
+    color: #050505;
   }
   
   /* Dropdown container (hidden by default) */
