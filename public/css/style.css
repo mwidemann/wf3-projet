@@ -284,4 +284,7 @@ h1, h2
     margin-bottom:0;
   }
 
-  
+.logonav{
+  margin: 0;
+  padding: 0;
+}
