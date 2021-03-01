@@ -14,11 +14,11 @@ class CarteController extends AbstractController
      */
     public function index(ArticleRepository $articleRepository): Response
     {
-        $catPlats = $articleRepository->CatPlats();
-        $catMenus = $articleRepository->CatMenus();
-        $catAccompagnements = $articleRepository->CatAccompagnements();
-        $catBoissons = $articleRepository->CatBoissons();
-        $catDesserts = $articleRepository->CatDesserts();
+        $catPlats = $articleRepository->catPlats();
+        $catMenus = $articleRepository->catMenus();
+        $catAccompagnements = $articleRepository->catAccompagnements();
+        $catBoissons = $articleRepository->catBoissons();
+        $catDesserts = $articleRepository->catDesserts();
         return $this->render('carte/index.html.twig', [
             'catPlats' => $catPlats,
             'catMenus' => $catMenus,
