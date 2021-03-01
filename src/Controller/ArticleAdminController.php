@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Form\ArticleType;
+use App\Form\ArticleUpdateType;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -63,20 +64,23 @@ class ArticleAdminController extends AbstractController
     public function updateArticle(ArticleRepository $articleRepository, $id, Request $request)
     {
         $article = $articleRepository->find($id);
-        $form = $this->createForm(ArticleType::class, $article);
+        $form = $this->createForm(ArticleUpdateType::class, $article);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
-            $oldNomImg = $article->getPhoto();
-            $oldCheminImg = $this->getParameter('dossier_photos_articles') . '/' . $oldNomImg;
-            if (file_exists($oldCheminImg))
+            if ($form['photo']->getData())
+            {
+                $oldNomImg = $article->getPhoto();
+                $oldCheminImg = $this->getParameter('dossier_photos_articles') . '/' . $oldNomImg;
+                if (file_exists($oldCheminImg))
                 unlink($oldCheminImg);
-            
-            $infoImg = $form['photo']->getData();
-            $extensionImg = $infoImg->guessExtension();
-            $nomImg = 'article-' . time() . '.' . $extensionImg;
-            $infoImg->move($this->getParameter('dossier_photos_articles'), $nomImg);
-            $article->setPhoto($nomImg);
+                
+                $infoImg = $form['photo']->getData();
+                $extensionImg = $infoImg->guessExtension();
+                $nomImg = 'article-' . time() . '.' . $extensionImg;
+                $infoImg->move($this->getParameter('dossier_photos_articles'), $nomImg);
+                $article->setPhoto($nomImg);
+            }
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($article);
             $manager->flush();
@@ -85,8 +89,8 @@ class ArticleAdminController extends AbstractController
 
             return $this->redirectToRoute('admin_articles');
         }
-        return $this->render('admin/articleForm.html.twig', [
-            'articleForm' => $form->createView()
+        return $this->render('admin/articleUpdateForm.html.twig', [
+            'articleUpdateForm' => $form->createView()
         ]);
     }
 
