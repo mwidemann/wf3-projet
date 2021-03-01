@@ -150,6 +150,13 @@
             <div class="col-12 text-center">
                 <h2>Nous contacter</h2>
             </div>
+                {% for label, messages in app.flashes(['success', 'danger']) %}
+                    {% for message in messages %}
+                        <div class="flash-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
                 {{ form_start(contactForm) }}
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-3 offset-lg-3 my-2">
@@ -174,7 +181,8 @@
 
                         <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">
                             {{ form_label(contactForm.message) }}
-                            {{ form_widget(contactForm.message) }} 
+                            {{ form_widget(contactForm.message) }}
+                            {{ form_help(contactForm.message) }}
                         </div>
                         
                         <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">

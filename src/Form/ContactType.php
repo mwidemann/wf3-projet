@@ -17,16 +17,29 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('prenom', TextType::class, [
-                'required' => true
+                'required' => true,
+                'label' => 'Prénom',
+                'attr' => [
+                    'placeholder' => 'Ex : Ken'
+                ]
             ])
             ->add('nom', TextType::class, [
-                'required' => true
+                'required' => true,
+                'label' => 'Nom',
+                'attr' => [
+                    'placeholder' => 'Ex : Lesurvivant'
+                ]
             ])
             ->add('email', EmailType::class, [
-                'required' => true
+                'required' => true,
+                'label' => 'Adresse e-mail',
+                'attr' => [
+                    'placeholder' => 'Ex : noken@hokuto.fr'
+                ]
             ])
             ->add('objet', ChoiceType::class, [
                 'required' => true,
+                'label' => 'Objet',
                 'choices' => [ 
                     ' - Choix - ' => '',
                     'Signaler un problème' => 'probleme',
@@ -36,12 +49,14 @@ class ContactType extends AbstractType
             ])
             ->add('message', TextareaType::class, [
                 'required' => true,
+                'label' => 'Message',
                 'attr' => [
                     'minlength' => 20,
-                    'maxlength' => 500
+                    'maxlength' => 500,
+                    'placeholder' => 'Saisir le message...'
                 ],
                 'help' => 'Maximum 500 caractères'
-                ])
+            ])
             ->add('envoyer', SubmitType::class)
         ;
     }
