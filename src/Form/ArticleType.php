@@ -78,7 +78,6 @@ class ArticleType extends AbstractType
                     'Menus brochettes' => 'menus brochettes', /*Menus*/
                     'Menus mixtes' => 'menus mixtes', /*Menus*/
                     'Menus sushi' => 'menus sushi', /*Menus*/
-                    'Menus chirashi' => 'menus chirashi', /*Menus*/
                     'Menus bateaux' => 'menus bateaux', /*Menus*/
                 ]
             ])
