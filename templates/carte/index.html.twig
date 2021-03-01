@@ -28,14 +28,14 @@
         <div class="sidebar_pc col-md-3">
             <button class="dropdown-btn">Nos plats<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in CatPlats %}
+                {% for elem in catPlats %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Tous nos plats</a>
             </div>            
               <button class="dropdown-btn">Nos menus<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in CatMenus %}
+                {% for elem in catMenus %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Tous nos menus</a>
@@ -43,14 +43,14 @@
             <hr>
             <button class="dropdown-btn">Accompagnements<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in CatAccompagnements %}
+                {% for elem in catAccompagnements %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Tous nos accompagnements</a>
             </div>            
               <button class="dropdown-btn">Boissons<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in CatBoissons %}
+                {% for elem in catBoissons %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Toutes nos boissons</a>
@@ -58,7 +58,7 @@
             <hr>
             <button class="dropdown-btn">Desserts<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in CatDesserts %}
+                {% for elem in catDesserts %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
                 <a href="?categ1=plats">Tous nos desserts</a>

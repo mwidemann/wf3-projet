@@ -46,22 +46,22 @@ class UserType extends AbstractType
                 'required' => false,
             ])
 
-            ->add('plainPassword', PasswordType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new PasswordStrength([
-                        'minLength' => 8,
-                        'tooShortMessage' => 'Le mot de passe doit contenir au moins 8 caractères',
-                        'minStrength' => 4,
-                        'message' => 'Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial'
-                        ])
-                ],
-                'attr' => [
-                    'placeholder' => '••••••••'
-                ],
-                'label' => 'Mot de passe',
-                'required' => false
-            ])
+            // ->add('plainPassword', PasswordType::class, [
+            //     'mapped' => false,
+            //     'constraints' => [
+            //         new PasswordStrength([
+            //             'minLength' => 8,
+            //             'tooShortMessage' => 'Le mot de passe doit contenir au moins 8 caractères',
+            //             'minStrength' => 4,
+            //             'message' => 'Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial'
+            //             ])
+            //     ],
+            //     'attr' => [
+            //         'placeholder' => '••••••••'
+            //     ],
+            //     'label' => 'Mot de passe',
+            //     'required' => false
+            // ])
                     
             ->add('valider', SubmitType::class)
         ;

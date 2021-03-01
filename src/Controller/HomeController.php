@@ -14,9 +14,9 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(ArticleRepository $ArticleRepository, Request $request, \Swift_Mailer $mailer): Response
+    public function index(ArticleRepository $articleRepository, Request $request, \Swift_Mailer $mailer): Response
     {
-        $topPlat = $ArticleRepository->findTopPlat();
+        $topPlat = $articleRepository->findTopPlat();
         $contactForm = $this->createForm(ContactType::class);
         $contactForm->handleRequest($request);
 
