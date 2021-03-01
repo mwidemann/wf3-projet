@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateur - Modification du compte{% endblock title %}
+
+{% block body %}
+
+    {{ form_start(adresseForm) }}
+
+        <div class="container p-5">
+            <h2 class="pb-5">Modification du compte</h2>
+            <div class="row">
+                <div class="col-12 my-3">
+                    {{ form_label(adresseForm.denomination) }}
+                    {{ form_widget(adresseForm.denomination) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(adresseForm.addCivilite) }}
+                    {{ form_widget(adresseForm.addCivilite) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(adresseForm.addNom) }}
+                    {{ form_widget(adresseForm.addNom) }}
+                </div>
+                
+                <div class="col-12 my-3">
+                    {{ form_label(adresseForm.addPrenom) }}
+                    {{ form_widget(adresseForm.addPrenom) }}
+                </div>
+                
+                <div class="col-12 my-3">
+                    {{ form_label(adresseForm.adresse) }}
+                    {{ form_widget(adresseForm.adresse) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(adresseForm.complement) }}
+                    {{ form_widget(adresseForm.complement) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(adresseForm.cp) }}
+                    {{ form_widget(adresseForm.cp) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(adresseForm.ville) }}
+                    {{ form_widget(adresseForm.ville) }}
+                </div>
+
+                <div class="col-12 text-center">
+                    {{ form_widget(adresseForm.valider )}}
+                </div>
+                
+            </div>
+        </div>
+    {{ form_end(adresseForm) }}
+
+{% endblock %}

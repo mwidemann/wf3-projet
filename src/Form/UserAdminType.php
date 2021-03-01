@@ -76,10 +76,10 @@ class UserAdminType extends AbstractType
                         'minStrength' => 4,
                         'message' => 'Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial'
                         ])
-                    ],
+                ],
                 'attr' => [
                     'placeholder' => '••••••••'
-                    ],
+                ],
                 'label' => 'Mot de passe',
                 'required' => false
             ])
