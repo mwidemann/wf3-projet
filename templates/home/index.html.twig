@@ -14,18 +14,17 @@
 <main>
 
     <section id="presentation" class="for-scrollify d-flex">
-         <div class="row align-self-center col-md-12 justify-content-around container-fluid p-xs-0 p-md-5 sous_section">
-            <div class="col-xs-12 col-md-5 my-auto">
-                <img src="./img/restaurant.jpg" alt="Hokuto de cuisine" title="Hokuto de cuisine" class="w-100" class="img_home">
-            </div>
-            <div class="col-xs-12 col-md-5 text-center align-self-center">
-                <h2>Le restaurant</h2>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus quia dicta soluta perspiciatis ducimus, placeat nam eius nisi obcaecati sequi eveniet aliquam molestias molestiae fuga temporibus assumenda, consequatur exercitationem optio! Iste distinctio animi, in earum nulla inventore aliquam neque quos provident deserunt maiores doloribus, voluptatem a molestiae praesentium adipisci obcaecati quam tenetur est? Reprehenderit laborum, accusamus.
-                <br><br>
-                <a href="{{ path('carte') }}" class="btn btn-dark">Commander en ligne</a>
-            </div>
-         </div>
-    </section>
+        <div class="row align-self-center col-md-12 justify-content-around container-fluid p-xs-0 p-md-5 sous_section">
+           <div class="col-xs-12 col-md-5 my-auto">
+               <img src="./img/restaurant.jpg" alt="Hokuto de cuisine" title="Hokuto de cuisine" class="w-100" class="img_home">
+           </div>
+           <div class="col-xs-12 col-md-5 text-center align-self-center fondpres py-4">
+               <h2>Le restaurant</h2>
+               <p>Bienvenue au Hokuto de Cuisine, le restaurant de Sushis qui manie l'art culinaire japonais avec maestria ! Venez découvrir nos plats dont la diversité et l'esthétique raviront vos papilles autant que vos yeux ! Plongez l'espace d'une bouchée de sushi dans un voyage inoubliable au Pays du Soleil Levant. Vos sens en ressortiront aussi aiguisés que nos couteaux !</p>
+               <a href="{{ path('carte') }}" class="btn btn-dark">Commander en ligne</a>
+           </div>
+        </div>
+   </section>
 
     <section id="top_plats" class="row for-scrollify">
         <!-- Version PC -->
@@ -173,9 +172,7 @@
                                 <div class="col-12 py-2">
                                     {{ form_label(contactForm.message) }}
                                     {{ form_widget(contactForm.message) }}
-                                    <div class="text-dark">
-                                        {{ form_help(contactForm.message) }}
-                                    </div>
+                                    {{ form_help(contactForm.message) }}
                                 </div>
                             </div>
                             <div class="row">
@@ -185,7 +182,8 @@
                             </div>
                         </div>
                     </div>  
-                </div>          
+                </div>
+                {{ form_end(contactForm) }}          
     </section>
 </main>
 
