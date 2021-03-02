@@ -52,7 +52,8 @@ class UserType extends AbstractType
 
             ->add('phone', IntegerType::class, [
                 'attr' => [
-                    'placeholder' => '0123456789'
+                    'placeholder' => '0123456789',
+                    'max' => 999999999999
                 ],
                 'label' => 'Téléphone'
             ])

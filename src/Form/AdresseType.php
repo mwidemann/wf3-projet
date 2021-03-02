@@ -72,20 +72,10 @@ class AdresseType extends AbstractType
             ->add('cp', IntegerType::class, [
                 'label' => 'Code postal',
                 'attr' => [
-                    'placeholder' => 'Ex.: 67100'
+                    'placeholder' => 'Ex.: 67100',
+                    'min' => 1000,
+                    'max' => 99999
                 ],
-                'constraints' => [
-                    new Assert\Regex([
-                        'pattern' => '/\d{5}/',
-                        'match' => true,
-                        'message' => 'Votre code postal est faux',
-                    ]),
-                    new Assert\Regex([
-                        'pattern' => '/\d{6,}/',
-                        'match' => false,
-                        'message' => 'Votre code postal est faux',
-                    ])
-                ]
             ])
             ->add('ville', TextType::class, [
                 'label' => 'Ville',
