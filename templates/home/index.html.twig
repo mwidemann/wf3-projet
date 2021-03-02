@@ -146,51 +146,60 @@
     </section>
  
     <section id="contact" class="for-scrollify">
-            <div style="height: 10vh;"></div>
-            <div class="col-12 text-center">
-                <h2>Nous contacter</h2>
-            </div>
-                {% for label, messages in app.flashes(['success', 'danger']) %}
-                        {% for message in messages %}
-                            <div class="flash-{{ label }} bg-{{ label }} text-light text-center p-3 mb-3 rounded">
-                                {{ message }}
+        <div style="height: 10vh;"></div>
+        <div class="col-12 text-center">
+            <h2>Nous contacter</h2>
+        </div>
+            {% for label, messages in app.flashes(['success', 'danger']) %}
+                    {% for message in messages %}
+                        <div class="flash-{{ label }} bg-{{ label }} text-light text-center p-3 mb-3 rounded">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+            {% endfor %}
+            {{ form_start(contactForm) }}
+                <div class="container justify-content-sm-center">
+                    <div class="row">
+                        <div class="fond col-sm-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 p-3">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6 py-2">
+                                    {{ form_label(contactForm.prenom) }}
+                                    {{ form_widget(contactForm.prenom) }}
+                                </div>
+                                <div class="col-sm-12 col-lg-6 py-2">
+                                    {{ form_label(contactForm.nom) }}
+                                    {{ form_widget(contactForm.nom) }}
+                                </div>
                             </div>
-                        {% endfor %}
-                {% endfor %}
-                {{ form_start(contactForm) }}
-                    <div class="container justify-content-sm-center">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-3 offset-lg-3 my-2 px-4">
-                                {{ form_label(contactForm.prenom) }}
-                                {{ form_widget(contactForm.prenom) }}
+                            <div class="row">
+                                <div class="col-12 py-2">
+                                    {{ form_label(contactForm.email) }}
+                                    {{ form_widget(contactForm.email) }}
+                                </div>
                             </div>
-                           
-                            <div class="col-sm-12 col-md-6 col-lg-3 my-2 px-4">
-                                {{ form_label(contactForm.nom) }}
-                                {{ form_widget(contactForm.nom) }}
+                            <div class="row">
+                                <div class="col-12 py-2">
+                                    {{ form_label(contactForm.objet) }}
+                                    {{ form_widget(contactForm.objet) }}
+                                </div>
                             </div>
-    
-                            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2 px-4">
-                                {{ form_label(contactForm.email) }}
-                                {{ form_widget(contactForm.email) }}
+                            <div class="row">
+                                <div class="col-12 py-2">
+                                    {{ form_label(contactForm.message) }}
+                                    {{ form_widget(contactForm.message) }}
+                                    <div class="text-dark">
+                                        {{ form_help(contactForm.message) }}
+                                    </div>
+                                </div>
                             </div>
-    
-                            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2 px-4">
-                                {{ form_label(contactForm.objet) }}
-                                {{ form_widget(contactForm.objet) }}
+                            <div class="row">
+                                <div class="col-12 py-2">
+                                    {{ form_widget(contactForm.envoyer) }}
+                                </div>
                             </div>
-    
-                            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2 px-4">
-                                {{ form_label(contactForm.message) }}
-                                {{ form_widget(contactForm.message) }}
-                                {{ form_help(contactForm.message) }}
-                            </div>
-                            
-                            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2 px-4">
-                                {{ form_widget(contactForm.envoyer) }}
-                            </div>
-                        </div>  
-                    </div>          
+                        </div>
+                    </div>  
+                </div>          
     </section>
 </main>
 

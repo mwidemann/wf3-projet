@@ -76,6 +76,14 @@ body{
   height : 100vh;
   width : 100%;  
   margin-left: 0 !important;
+  opacity: 0.8;
+}
+
+#contact form .fond {
+  background-color: lightsteelblue;
+  border-radius: 10px;
+  opacity:0.95;
+
 }
 
 .sous_section
