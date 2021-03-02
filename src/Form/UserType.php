@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Rollerworks\Component\PasswordStrength\Validator\Constraints\PasswordStrength;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class UserType extends AbstractType
 {
@@ -28,11 +29,25 @@ class UserType extends AbstractType
             ])
 
             ->add('nom', TextType::class, [
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre nom ne peut pas contenir de nombre',
+                    ])
+                ]
             ])
 
             ->add('prenom', TextType::class, [
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre prénom ne peut pas contenir de nombre',
+                    ])
+                ]
             ])
 
             ->add('phone', IntegerType::class, [
