@@ -70,6 +70,8 @@ class OrderController extends AbstractController
 
             $this->addFlash('success', 'Votre commande a bien été prise en compte');
 
+            // Reset panier
+            $session->set('panier', []);
             return $this->redirectToRoute('home');
         }
         

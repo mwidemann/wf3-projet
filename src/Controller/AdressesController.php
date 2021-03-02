@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Livraison;
 use App\Form\AdresseType;
+use App\Form\LivraisonType;
 use App\Entity\UserLivraison;
 use App\Repository\LivraisonRepository;
 use App\Repository\UserLivraisonRepository;
@@ -56,6 +57,29 @@ class AdressesController extends AbstractController
             else
                 $this->addFlash('danger','Une erreur est survenue lors de l\'ajout de l\'adresse.');
                 
+            return $this->redirectToRoute('user_adresses');
+        }
+        return $this->render('user/adresseForm.html.twig', [
+            'adresseForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/user/adresses/update-{id}", name="adresse_update")
+     */
+    public function updateLivraison(LivraisonRepository $livraisonRepository, $id, Request $request)
+    {
+        $livraison = $livraisonRepository->find($id);
+        $form = $this->createForm(AdresseType::class, $livraison);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($livraison);
+            $manager->flush();
+
+            $this->addFlash('success', 'L\'adresse a bien été modifiée.');
+
             return $this->redirectToRoute('user_adresses');
         }
         return $this->render('user/adresseForm.html.twig', [
