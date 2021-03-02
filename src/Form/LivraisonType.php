@@ -58,6 +58,18 @@ class LivraisonType extends AbstractType
                 'label' => 'Code postal',
                 'attr' => [
                     'placeholder' => 'Ex.: 67100'
+                ],
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d{5}/',
+                        'match' => true,
+                        'message' => 'Votre code postal est faux',
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/\d{6,}/',
+                        'match' => false,
+                        'message' => 'Votre code postal est faux',
+                    ])
                 ]
             ])
             ->add('ville', TextType::class, [
