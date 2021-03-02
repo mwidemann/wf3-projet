@@ -20,7 +20,7 @@
             <div class="col-3">
                 <p><a href="{{ path('user') }}">Informations</a></p>
                 <p><a href="{{ path('user_adresses') }}">Adresses</a></p>
-                <p><a href="#">Commandes</a></p>
+                <p><a href="{{ path('user_commandes') }}">Commandes</a></p>
                 <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
             </div>
             <div class="col-9">
@@ -66,16 +66,20 @@
                                     </ul>
                                 </div>
 
-                                <div class="col-12 p-3">
+                                {# Si plusieurs adresses gérées #}
+                                {# <div class="col-12 p-3">
                                     <a href="{{ path('adresse_delete', {'id':adresse_id.id}) }}"><button class="btn btn-danger btn-sm">Supprimer cette adresse</button></a>
-                                </div>
+                                </div> #}
                             {% endif %}
                         {% endfor %}
                     {% endfor %}
 
-
-                    <div class="col-12 text-center p-3">
+                    {# Si plusieurs adresses gérées #}
+                    {# <div class="col-12 text-center p-3">
                         <a href="{{ path('adresse_create') }}"><button class="btn btn-light btn-outline-dark">Ajouter une adresse</button></a>
+                    </div> #}
+                    <div class="col-12 text-center p-3">
+                        <a href="{{ path('adresse_create') }}"><button class="btn btn-light btn-outline-dark">Modifier l'adresse</button></a>
                     </div>
                 </div>
             </div>

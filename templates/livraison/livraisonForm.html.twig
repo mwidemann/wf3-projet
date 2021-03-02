@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateur - Modification de l'adresse{% endblock title %}
+
+{% block body %}
+
+    {{ form_start(livraisonForm) }}
+
+        <div class="container p-5">
+            <h2 class="pb-5">Modification de l'adresse de livraison</h2>
+            <div class="row">
+                <div class="col-12 my-3">
+                    {{ form_label(livraisonForm.denomination) }}
+                    {{ form_widget(livraisonForm.denomination) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(livraisonForm.addCivilite) }}
+                    {{ form_widget(livraisonForm.addCivilite) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(livraisonForm.addNom) }}
+                    {{ form_widget(livraisonForm.addNom) }}
+                </div>
+                
+                <div class="col-12 my-3">
+                    {{ form_label(livraisonForm.addPrenom) }}
+                    {{ form_widget(livraisonForm.addPrenom) }}
+                </div>
+                
+                <div class="col-12 my-3">
+                    {{ form_label(livraisonForm.adresse) }}
+                    {{ form_widget(livraisonForm.adresse) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(livraisonForm.complement) }}
+                    {{ form_widget(livraisonForm.complement) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(livraisonForm.cp) }}
+                    {{ form_widget(livraisonForm.cp) }}
+                </div>
+
+                <div class="col-12 my-3">
+                    {{ form_label(livraisonForm.ville) }}
+                    {{ form_widget(livraisonForm.ville) }}
+                </div>
+
+                <div class="col-12 text-center">
+                    {{ form_widget(livraisonForm.valider )}}
+                </div>
+                
+            </div>
+        </div>
+    {{ form_end(livraisonForm) }}
+
+{% endblock %}

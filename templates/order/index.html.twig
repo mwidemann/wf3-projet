@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock title %}
+
+{% block body %}
+
+    {{ form_start(orderForm) }}
+
+        <div class="container p-5">
+            <h2 class="pb-5">Dernière étape :</h2>
+            <div class="row">
+                <div class="col-6 my-3">
+                    {{ form_label(orderForm.dateLivraison) }}
+                    {{ form_widget(orderForm.dateLivraison) }}
+                </div>
+                <div class="col-6 my-3">
+                    {{ form_label(orderForm.moyenPaiement) }}
+                    {{ form_widget(orderForm.moyenPaiement) }}
+                </div>
+
+                <div class="col-12 text-center">
+                    {{ form_widget(orderForm.valider )}}
+                </div>
+                
+            </div>
+        </div>
+    {{ form_end(orderForm) }}
+
+{% endblock %}

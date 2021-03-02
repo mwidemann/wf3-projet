@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commandes utilisateur{% endblock %}
+
+{% block body %}
+
+{% if app.user %}
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-3">
+                <p><a href="{{ path('user') }}">Informations</a></p>
+                <p><a href="{{ path('user_adresses') }}">Adresses</a></p>
+                <p><a href="{{ path('user_commandes') }}">Commandes</a></p>
+                <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
+            </div>
+            <div class="col-9">
+                <h2 class="p-3">Bienvenue {{ app.user.prenom }} !</h2>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="p-3">Historique des commandes</h3>
+                    </div>
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Numéro</th>
+                                <th>Prix</th>
+                                <th>Date de livraison</th>
+                                <th>Adresse de livraison</th>
+                                <th>Moyen de paiement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for commande in commandes %}
+                                <tr>
+                                    <td>{{ commande.numero }}</td>
+                                    <td>{{ commande.somme }} €</td>
+                                    <td>{{ commande.dateLivraison|date(('Y-m-d H:i')) }}</td>
+                                    <td>{{ commande.adresseLivraison }}</td>
+                                    <td>{{ commande.moyenPaiement }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="container text-center p-5">
+        <h3 class="pb-5">Vous devez vous connecter pour accéder à votre compte.</h3>
+        <a href="{{ path('app_login') }}"><button class="btn btn-light btn-outline-dark">Se connecter</button></a>
+        <a href="{{ path('app_register') }}"><button class="btn btn-light btn-outline-dark">Créer un compte</button></a>
+    </div>
+        
+{% endif %}
+{% endblock %}

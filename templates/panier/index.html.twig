@@ -18,8 +18,6 @@
 
         <div class="col-3">
             {% if (app.user) %}
-                <p><a href="{{ path('user') }}">Informations</a></p>
-                <p><a href="#">Commandes</a></p>
                 <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
             {% else %}
                 <p><a href="{{ path('app_login') }}">Se connecter</a></p>
