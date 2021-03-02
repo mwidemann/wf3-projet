@@ -73,7 +73,7 @@ body{
   background-position: left center; /* à modifier pour la version mobile selon notre choix */
   background-size: cover;
   padding : 0;
-  height : 100vh;
+  min-height: 120vh;
   width : 100%;  
   margin-left: 0 !important;
   opacity: 0.8;
@@ -84,6 +84,13 @@ body{
   border-radius: 10px;
   opacity:0.95;
 
+}
+
+section
+{
+    min-height: 100vh;
+    position: relative;
+    /*top: 20vh;*/
 }
 
 .sous_section
