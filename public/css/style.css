@@ -287,10 +287,15 @@ h1, h2
   }
 
 .logonav{
-  margin: 0;
-  padding: 0;
+      margin: 0;
+      padding: 0;
 }
 #logofooter{
- margin: auto;
- margin-left: -20px;
+    margin: auto;
+    margin-left: -20px;
+}
+
+.icon
+{
+  margin : 2vh;
 }
