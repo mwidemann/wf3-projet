@@ -55,7 +55,8 @@ class UserAdminType extends AbstractType
             ->add('phone', IntegerType::class, [
                 'required' => false,
                 'attr' => [
-                    'placeholder' => '0123456789'
+                    'placeholder' => '0123456789',
+                    'max' => 999999999999
                 ],
                 'label' => 'Téléphone'
             ])

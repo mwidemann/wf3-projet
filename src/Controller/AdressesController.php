@@ -29,42 +29,40 @@ class AdressesController extends AbstractController
             'adresses' => $adresses,
         ]);
     }
-
-    // Pas utilisé pour l'instant
-    //
-    // /**
-    //  * @Route("/user/adresses/create", name="adresse_create")
-    //  */
-    // public function createAdresse(Request $request)
-    // {
-    //     $adresse = new Livraison();
-    //     $user_livraison = new UserLivraison();
-    //     $form = $this->createForm(LivraisonType::class, $adresse);
-    //     $form->handleRequest($request);
-    //     if ($form->isSubmitted()) 
-    //     {
-    //         if ($form->isValid())
-    //         {
-    //             $manager = $this->getDoctrine()->getManager();
-    //             $manager->persist($adresse);
-    //             $manager->flush();
+    
+    /**
+     * @Route("/user/adresses/create", name="adresse_create")
+     */
+    public function createAdresse(Request $request)
+    {
+        $adresse = new Livraison();
+        $user_livraison = new UserLivraison();
+        $form = $this->createForm(LivraisonType::class, $adresse);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) 
+        {
+            if ($form->isValid())
+            {
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($adresse);
+                $manager->flush();
                 
-    //             $user_livraison->setLivraisonId($adresse->getId());
-    //             $user_livraison->setUserId($this->getUser()->getId());
-    //             $manager->persist($user_livraison);
-    //             $manager->flush();
+                $user_livraison->setLivraisonId($adresse->getId());
+                $user_livraison->setUserId($this->getUser()->getId());
+                $manager->persist($user_livraison);
+                $manager->flush();
 
-    //             $this->addFlash('success', 'L\'adresse a bien été ajoutée.');
-    //         }
-    //         else
-    //             $this->addFlash('danger','Une erreur est survenue lors de l\'ajout de l\'adresse.');
+                $this->addFlash('success', 'L\'adresse a bien été ajoutée.');
+            }
+            else
+                $this->addFlash('danger','Une erreur est survenue lors de l\'ajout de l\'adresse.');
                 
-    //         return $this->redirectToRoute('user_adresses');
-    //     }
-    //     return $this->render('user/adresseForm.html.twig', [
-    //         'adresseForm' => $form->createView()
-    //     ]);
-    // }
+            return $this->redirectToRoute('user_adresses');
+        }
+        return $this->render('user/adresseForm.html.twig', [
+            'adresseForm' => $form->createView()
+        ]);
+    }
 
     /**
      * @Route("/user/adresses/update-{id}", name="adresse_update")

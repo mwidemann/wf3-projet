@@ -17,9 +17,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class OrderController extends AbstractController
 {
     /**
-     * @Route("/order-{id}", name="order")
+     * @Route("/order-{adresse_id}", name="order")
      */
-    public function index(LivraisonRepository $livraisonRepository, UserLivraisonRepository $userLivraisonRepository, ArticleRepository $articleRepository, SessionInterface $session, Request $request, $id): Response
+    public function index(LivraisonRepository $livraisonRepository, UserLivraisonRepository $userLivraisonRepository, ArticleRepository $articleRepository, SessionInterface $session, Request $request, $adresse_id): Response
     {
         // On récupère le panier
         $panier = $session->get('panier', []);
@@ -42,7 +42,7 @@ class OrderController extends AbstractController
         }
         // 
 
-        $livraison = $livraisonRepository->find($id);
+        $livraison = $livraisonRepository->find($adresse_id);
 
         $order = new Order();
 
@@ -54,8 +54,7 @@ class OrderController extends AbstractController
             $order->setNumero(" ");
             $order->setSomme($total);
             // Problème ici
-            // $order->setAdresseLivraison($livraison->getAddNom() . ", " . $livraison->getAddPrenom() . ", " . $livraison->getAdresse() . ", " . $livraison->getComplement() . ", " . $livraison->getCp() . ", " . $livraison->getVille());
-            $order->setAdresseLivraison(" ");
+            $order->setAdresseLivraison($livraison->getAdresse() . ", " . $livraison->getCp() . ", " . $livraison->getVille());
             $order->setStatut("preparation");
             $order->setCartId(1);
             $order->setUserId($this->getUser()->getId());

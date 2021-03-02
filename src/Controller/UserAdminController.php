@@ -33,12 +33,15 @@ class UserAdminController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
-            $user->setPassword(
-                $passwordEncoder->encodePassword(
-                    $user,
-                    $form->get('plainPassword')->getData()
-                )
-            );
+            if ($form['plainPassword']->getData())
+            {
+                $user->setPassword(
+                    $passwordEncoder->encodePassword(
+                        $user,
+                        $form->get('plainPassword')->getData()
+                        )
+                    );
+            }
             
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($user);

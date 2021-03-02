@@ -30,59 +30,59 @@
                     <div class="col-12">
                         <h3 class="p-3">Gérer mon adresse</h3>
                     </div>
-                    
-                    {% for adresse_id in adresses_id %}
-                        {% for adresse in adresses %}
-                            {% if (adresse.id == adresse_id.livraisonId) %}
-                                <div class="col-12">
-                                    <h2 class="p-3">{{ adresse.denomination }}</h2>
-                                </div>
+                    {% if (adresses_id) %}
+                        {% for adresse_id in adresses_id %}
+                            {% for adresse in adresses %}
+                                {% if (adresse.id == adresse_id.livraisonId) %}
+                                    <div class="col-12">
+                                        <h2 class="p-3">{{ adresse.denomination }}</h2>
+                                    </div>
 
-                                <div class="col-6">
-                                    <ul>
-                                        <li>Civilité :</li>
-                                        <li>Nom :</li>
-                                        <li>Prénom :</li>
-                                        <li>Adresse :</li>
-                                        {% if adresse.complement %}
-                                            <li>Complément :</li>
-                                        {% endif %}
-                                        <li>Code postal :</li>
-                                        <li>Ville :</li>
-                                    </ul>
-                                </div>
+                                    <div class="col-6">
+                                        <ul>
+                                            <li>Civilité :</li>
+                                            <li>Nom :</li>
+                                            <li>Prénom :</li>
+                                            <li>Adresse :</li>
+                                            {% if adresse.complement %}
+                                                <li>Complément :</li>
+                                            {% endif %}
+                                            <li>Code postal :</li>
+                                            <li>Ville :</li>
+                                        </ul>
+                                    </div>
 
-                                <div class="col-6">
-                                    <ul>
-                                        <li>{{ adresse.addCivilite|capitalize }}</li>
-                                        <li>{{ adresse.addNom|capitalize }}</li>
-                                        <li>{{ adresse.addPrenom|capitalize }}</li>
-                                        <li>{{ adresse.adresse }}</li>
-                                        {% if adresse.complement %}
-                                            <li>{{ adresse.complement }}</li>
-                                        {% endif %}
-                                        <li>{{ adresse.cp }}</li>
-                                        <li>{{ adresse.ville|capitalize }}</li>
-                                    </ul>
-                                </div>
+                                    <div class="col-6">
+                                        <ul>
+                                            <li>{{ adresse.addCivilite|capitalize }}</li>
+                                            <li>{{ adresse.addNom|capitalize }}</li>
+                                            <li>{{ adresse.addPrenom|capitalize }}</li>
+                                            <li>{{ adresse.adresse }}</li>
+                                            {% if adresse.complement %}
+                                                <li>{{ adresse.complement }}</li>
+                                            {% endif %}
+                                            <li>{{ adresse.cp }}</li>
+                                            <li>{{ adresse.ville|capitalize }}</li>
+                                        </ul>
+                                    </div>
 
-                                {# Si plusieurs adresses gérées #}
-                                {# <div class="col-12 p-3">
-                                    <a href="{{ path('adresse_delete', {'id':adresse_id.id}) }}"><button class="btn btn-danger btn-sm">Supprimer cette adresse</button></a>
-                                </div> #}
+                                    {# Si plusieurs adresses gérées #}
+                                    {# <div class="col-12 p-3">
+                                        <a href="{{ path('adresse_delete', {'id':adresse_id.id}) }}"><button class="btn btn-danger btn-sm">Supprimer cette adresse</button></a>
+                                    </div> #}
 
-                                <div class="col-12 text-center p-3">
-                                    <a href="{{ path('adresse_update', {'id':adresse.id}) }}"><button class="btn btn-light btn-outline-dark">Modifier l'adresse</button></a>
-                                </div>
+                                    <div class="col-12 text-center p-3">
+                                        <a href="{{ path('adresse_update', {'id':adresse.id}) }}"><button class="btn btn-light btn-outline-dark">Modifier l'adresse</button></a>
+                                    </div>
 
-                            {% endif %}
+                                {% endif %}
+                            {% endfor %}
                         {% endfor %}
-                    {% endfor %}
-
-                    {# Si plusieurs adresses gérées #}
-                    {# <div class="col-12 text-center p-3">
-                        <a href="{{ path('adresse_create') }}"><button class="btn btn-light btn-outline-dark">Ajouter une adresse</button></a>
-                    </div> #}
+                    {% else %}
+                        <div class="col-12 text-center p-3">
+                            <a href="{{ path('adresse_create') }}"><button class="btn btn-light btn-outline-dark">Ajouter une adresse</button></a>
+                        </div>
+                    {% endif %}      
                 </div>
             </div>
         </div>
