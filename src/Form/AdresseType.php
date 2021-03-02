@@ -57,7 +57,9 @@ class AdresseType extends AbstractType
             ->add('cp', IntegerType::class, [
                 'label' => 'Code postal',
                 'attr' => [
-                    'placeholder' => 'Ex.: 67100'
+                    'placeholder' => 'Ex.: 67100',
+                    'min' => 1000,
+                    'max' => 99999
                 ]
             ])
             ->add('ville', TextType::class, [
