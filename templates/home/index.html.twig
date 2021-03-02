@@ -158,41 +158,39 @@
                         {% endfor %}
                 {% endfor %}
                 {{ form_start(contactForm) }}
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-3 offset-lg-3 my-2">
-                            {{ form_label(contactForm.prenom) }}
-                            {{ form_widget(contactForm.prenom) }}
-                        </div>
-                       
-                        <div class="col-ms-12 col-md-6 col-lg-3 my-2">
-                            {{ form_label(contactForm.nom) }}
-                            {{ form_widget(contactForm.nom) }}
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">
-                            {{ form_label(contactForm.email) }}
-                            {{ form_widget(contactForm.email) }}
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">
-                            {{ form_label(contactForm.objet) }}
-                            {{ form_widget(contactForm.objet) }}
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">
-                            {{ form_label(contactForm.message) }}
-                            {{ form_widget(contactForm.message) }}
-                            {{ form_help(contactForm.message) }}
-                        </div>
-                        
-                        <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2">
-                            {{ form_widget(contactForm.envoyer) }}
-                        </div>
-
-                    </div>  
-
-                {{ form_end(contactForm) }}   
-            
+                    <div class="container justify-content-sm-center">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-3 offset-lg-3 my-2 px-5">
+                                {{ form_label(contactForm.prenom) }}
+                                {{ form_widget(contactForm.prenom) }}
+                            </div>
+                           
+                            <div class="col-sm-12 col-md-6 col-lg-3 my-2 px-5">
+                                {{ form_label(contactForm.nom) }}
+                                {{ form_widget(contactForm.nom) }}
+                            </div>
+    
+                            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2 px-5">
+                                {{ form_label(contactForm.email) }}
+                                {{ form_widget(contactForm.email) }}
+                            </div>
+    
+                            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2 px-5">
+                                {{ form_label(contactForm.objet) }}
+                                {{ form_widget(contactForm.objet) }}
+                            </div>
+    
+                            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2 px-5">
+                                {{ form_label(contactForm.message) }}
+                                {{ form_widget(contactForm.message) }}
+                                {{ form_help(contactForm.message) }}
+                            </div>
+                            
+                            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 my-2 px-5">
+                                {{ form_widget(contactForm.envoyer) }}
+                            </div>
+                        </div>  
+                    </div>          
     </section>
 </main>
 
