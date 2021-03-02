@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Rollerworks\Component\PasswordStrength\Validator\Constraints\PasswordStrength;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class RegistrationFormType extends AbstractType
 {
@@ -34,14 +35,28 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Dupont'
                 ],
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre nom ne peut pas contenir de nombre',
+                    ])
+                ]
             ])
 
             ->add('prenom', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Jean'
                 ],
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre prénom ne peut pas contenir de nombre',
+                    ])
+                ]
             ])
 
             ->add('phone', TextType::class, [
