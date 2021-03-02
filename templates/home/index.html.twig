@@ -134,9 +134,6 @@
  
     <section id="contact" class="for-scrollify">
         <div style="height: 10vh;"></div>
-        <div class="col-12 text-center">
-            <h2>Nous contacter</h2>
-        </div>
             {% for label, messages in app.flashes(['success', 'danger']) %}
                     {% for message in messages %}
                         <div class="flash-{{ label }} bg-{{ label }} text-light text-center p-3 mb-3 rounded">
@@ -148,6 +145,9 @@
                 <div class="container justify-content-sm-center">
                     <div class="row">
                         <div class="fond col-sm-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 p-3">
+                            <div class="col-12 text-center pb-3">
+                                <h2>Nous contacter</h2>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-12 col-lg-6 py-2">
                                     {{ form_label(contactForm.prenom) }}
