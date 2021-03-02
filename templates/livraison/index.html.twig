@@ -46,55 +46,60 @@
             </table>
         </div>
         <div class="col-12">
-            {% for adresse_id in adresses_id %}
-                {% for adresse in adresses %}
-                    {% if (adresse.id == adresse_id.livraisonId) %}
-                        <div class="col-12">
-                            <h2 class="p-3">Adresse de livraison</h2>
-                        </div>
-                        <div class="col-12">
-                            <h3 class="p-3">{{ adresse.denomination }}</h3>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <ul>
-                                    <li>Civilité :</li>
-                                    <li>Nom :</li>
-                                    <li>Prénom :</li>
-                                    <li>Adresse :</li>
-                                    {% if adresse.complement %}
-                                        <li>Complément :</li>
-                                    {% endif %}
-                                    <li>Code postal :</li>
-                                    <li>Ville :</li>
-                                </ul>
+            {% if (adresses_id) %}
+                {% for adresse_id in adresses_id %}
+                    {% for adresse in adresses %}
+                        {% if (adresse.id == adresse_id.livraisonId) %}
+                            <div class="col-12">
+                                <h2 class="p-3">Adresse de livraison</h2>
+                            </div>
+                            <div class="col-12">
+                                <h3 class="p-3">{{ adresse.denomination }}</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <ul>
+                                        <li>Civilité :</li>
+                                        <li>Nom :</li>
+                                        <li>Prénom :</li>
+                                        <li>Adresse :</li>
+                                        {% if adresse.complement %}
+                                            <li>Complément :</li>
+                                        {% endif %}
+                                        <li>Code postal :</li>
+                                        <li>Ville :</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-6">
+                                    <ul>
+                                        <li>{{ adresse.addCivilite|capitalize }}</li>
+                                        <li>{{ adresse.addNom|capitalize }}</li>
+                                        <li>{{ adresse.addPrenom|capitalize }}</li>
+                                        <li>{{ adresse.adresse }}</li>
+                                        {% if adresse.complement %}
+                                            <li>{{ adresse.complement }}</li>
+                                        {% endif %}
+                                        <li>{{ adresse.cp }}</li>
+                                        <li>{{ adresse.ville|capitalize }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center p-3">
+                                <a href="{{ path('livraison_update', {'id':adresse.id}) }}"><button class="btn btn-light btn-outline-dark">Modifier l'adresse</button></a>
                             </div>
 
-                            <div class="col-6">
-                                <ul>
-                                    <li>{{ adresse.addCivilite|capitalize }}</li>
-                                    <li>{{ adresse.addNom|capitalize }}</li>
-                                    <li>{{ adresse.addPrenom|capitalize }}</li>
-                                    <li>{{ adresse.adresse }}</li>
-                                    {% if adresse.complement %}
-                                        <li>{{ adresse.complement }}</li>
-                                    {% endif %}
-                                    <li>{{ adresse.cp }}</li>
-                                    <li>{{ adresse.ville|capitalize }}</li>
-                                </ul>
+                            <div class="col-12 text-right p-3">
+                                <a href="{{ path('order', {'id':adresse.id}) }}"><button class="btn btn-primary">Etape suivante</button></a>
                             </div>
-                        </div>
-                        <div class="col-12 text-center p-3">
-                            <a href="{{ path('livraison_update', {'id':adresse.id}) }}"><button class="btn btn-light btn-outline-dark">Modifier l'adresse</button></a>
-                        </div>
-
-                        <div class="col-12 text-right p-3">
-                            <a href="{{ path('order', {'id':adresse.id}) }}"><button class="btn btn-primary">Etape suivante</button></a>
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
-
+            {% else %}
+                <div class="col-12 text-center p-3">
+                    <a href="{{ path('livraison_create') }}"><button class="btn btn-light btn-outline-dark">Ajouter une adresse de livraison</button></a>
+                </div>
+            {% endif %}
 
         </div>
     </div>

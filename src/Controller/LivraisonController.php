@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Livraison;
 use App\Form\LivraisonType;
+use App\Entity\UserLivraison;
 use App\Repository\ArticleRepository;
 use App\Repository\LivraisonRepository;
 use App\Repository\UserLivraisonRepository;
@@ -46,6 +48,40 @@ class LivraisonController extends AbstractController
             'adresses' => $adresses,
             'items' => $panierRempli,
             'total' => $total
+        ]);
+    }
+
+    /**
+     * @Route("/livraison/create", name="livraison_create")
+     */
+    public function createAdresse(Request $request)
+    {
+        $livraison = new Livraison();
+        $user_livraison = new UserLivraison();
+        $form = $this->createForm(LivraisonType::class, $livraison);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) 
+        {
+            if ($form->isValid())
+            {
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($livraison);
+                $manager->flush();
+                
+                $user_livraison->setLivraisonId($livraison->getId());
+                $user_livraison->setUserId($this->getUser()->getId());
+                $manager->persist($user_livraison);
+                $manager->flush();
+
+                $this->addFlash('success', 'L\'adresse a bien été ajoutée.');
+            }
+            else
+                $this->addFlash('danger','Une erreur est survenue lors de l\'ajout de l\'adresse.');
+                
+            return $this->redirectToRoute('livraison');
+        }
+        return $this->render('livraison/livraisonForm.html.twig', [
+            'livraisonForm' => $form->createView()
         ]);
     }
 
