@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class LivraisonType extends AbstractType
 {
@@ -33,12 +34,26 @@ class LivraisonType extends AbstractType
                 'label' => 'Nom',
                 'attr' => [
                     'placeholder' => 'Ex.: Dupont'
+                ],
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre nom ne peut pas contenir de nombre',
+                    ])
                 ]
             ])
             ->add('addPrenom', TextType::class, [
                 'label' => 'Prénom',
                 'attr' => [
                     'placeholder' => 'Ex.: Jean'
+                ],
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre prénom ne peut pas contenir de nombre',
+                    ])
                 ]
             ])
             ->add('adresse', TextType::class , [
