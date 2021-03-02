@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ContactType extends AbstractType
 {
@@ -25,6 +26,11 @@ class ContactType extends AbstractType
                     'placeholder' => 'Ex : Ken'
                 ],
                 'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre prénom ne peut pas contenir de nombre',
+                    ]),
                     new Length([
                         'max' => 20,
                         'maxMessage' => 'Le prénom doit contenir 20 caractères maximum'
@@ -38,6 +44,11 @@ class ContactType extends AbstractType
                     'placeholder' => 'Ex : Lesurvivant'
                 ],
                 'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre nom ne peut pas contenir de nombre',
+                    ]),
                     new Length([
                         'max' => 20,
                         'maxMessage' => 'Le nom doit contenir 20 caractères maximum'
