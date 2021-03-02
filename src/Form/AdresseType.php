@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class AdresseType extends AbstractType
 {
@@ -33,12 +34,26 @@ class AdresseType extends AbstractType
                 'label' => 'Nom',
                 'attr' => [
                     'placeholder' => 'Ex.: Dupont'
+                ],
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre nom ne peut pas contenir de nombre',
+                    ])
                 ]
             ])
             ->add('addPrenom', TextType::class, [
                 'label' => 'Prénom',
                 'attr' => [
                     'placeholder' => 'Ex.: Jean'
+                ],
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'match' => false,
+                        'message' => 'Votre prénom ne peut pas contenir de nombre',
+                    ])
                 ]
             ])
             ->add('adresse', TextType::class , [
@@ -58,6 +73,18 @@ class AdresseType extends AbstractType
                 'label' => 'Code postal',
                 'attr' => [
                     'placeholder' => 'Ex.: 67100'
+                ],
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/\d{5}/',
+                        'match' => true,
+                        'message' => 'Votre code postal est faux',
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/\d{6,}/',
+                        'match' => false,
+                        'message' => 'Votre code postal est faux',
+                    ])
                 ]
             ])
             ->add('ville', TextType::class, [
