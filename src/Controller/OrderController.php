@@ -53,8 +53,9 @@ class OrderController extends AbstractController
         {
             $order->setNumero(" ");
             $order->setSomme($total);
+            // Problème ici
             // $order->setAdresseLivraison($livraison->getAddNom() . ", " . $livraison->getAddPrenom() . ", " . $livraison->getAdresse() . ", " . $livraison->getComplement() . ", " . $livraison->getCp() . ", " . $livraison->getVille());
-            $order->setAdresseLivraison("salut");
+            $order->setAdresseLivraison(" ");
             $order->setStatut("preparation");
             $order->setCartId(1);
             $order->setUserId($this->getUser()->getId());

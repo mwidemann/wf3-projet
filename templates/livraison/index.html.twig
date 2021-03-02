@@ -87,9 +87,9 @@
                         <div class="col-12 text-center p-3">
                             <a href="{{ path('livraison_update', {'id':adresse.id}) }}"><button class="btn btn-light btn-outline-dark">Modifier l'adresse</button></a>
                         </div>
-                        
+
                         <div class="col-12 text-right p-3">
-                            <a href="{{ path('order', {'id':adresse.id}) }}"><button class="btn btn-primary">Valider ma commande</button></a>
+                            <a href="{{ path('order', {'id':adresse.id}) }}"><button class="btn btn-primary">Etape suivante</button></a>
                         </div>
                     {% endif %}
                 {% endfor %}
