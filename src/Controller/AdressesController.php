@@ -37,7 +37,7 @@ class AdressesController extends AbstractController
     {
         $adresse = new Livraison();
         $user_livraison = new UserLivraison();
-        $form = $this->createForm(AdresseType::class, $adresse);
+        $form = $this->createForm(LivraisonType::class, $adresse);
         $form->handleRequest($request);
         if ($form->isSubmitted()) 
         {
@@ -70,7 +70,7 @@ class AdressesController extends AbstractController
     public function updateLivraison(LivraisonRepository $livraisonRepository, $id, Request $request)
     {
         $livraison = $livraisonRepository->find($id);
-        $form = $this->createForm(AdresseType::class, $livraison);
+        $form = $this->createForm(LivraisonType::class, $livraison);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
