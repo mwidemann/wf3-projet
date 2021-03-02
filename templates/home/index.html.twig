@@ -18,7 +18,7 @@
            <div class="col-xs-12 col-md-5 my-auto">
                <img src="./img/restaurant.jpg" alt="Hokuto de cuisine" title="Hokuto de cuisine" class="w-100" class="img_home">
            </div>
-           <div class="col-xs-12 col-md-5 text-center align-self-center fondpres py-4 m-5">
+           <div class="col-xs-12 col-md-5 text-center align-self-center fondBleu py-4 m-5">
                <h2 class="pb-3">Le restaurant</h2>
                <p>Bienvenue au Hokuto de Cuisine, le restaurant de Sushis qui manie l'art culinaire japonais avec maestria ! Venez découvrir nos plats dont la diversité et l'esthétique raviront vos papilles autant que vos yeux ! Plongez l'espace d'une bouchée de sushi dans un voyage inoubliable au Pays du Soleil Levant. Vos sens en ressortiront aussi aiguisés que nos couteaux !</p>
                <a href="{{ path('carte') }}" class="btn btn-dark">Commander en ligne</a>
@@ -78,6 +78,7 @@
                         <h2>Quelques idées de plats...</h2>
                         <br>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit illo sequi labore mollitia doloremque, enim explicabo, temporibus cumque fugit nemo, eaque earum! Assumenda dolor accusantium id voluptates saepe earum unde.</p>
+                        <a href="{{ path('carte') }}" class="btn btn-dark">Commander en ligne</a>
                     </div>
                 </div>
             </div>
@@ -95,15 +96,15 @@
             <div class="row align-self-center justify-content-around">
                 <div class="col-xs-12 col-md-3 my-auto">
                     <img src="{{ asset('img/articles/article-1614614871.jpg') }}" alt="Nos menus" title="Nos menus" class="w-100 img_home">
-                    <div class="col-12 text-center p-2"><a href="{{ path('carte') }}?categ1=menus" class="btn btn-dark">Nos menus</a></div>
+                    <div class="col-12 text-center p-2"><a href="{{ path('carte') }}?categ1=menus" class="btn btn-dark mb-5">Nos menus</a></div>
                 </div>
                 <div class="col-xs-12 col-md-3 my-auto">
                     <img src="{{ asset('img/articles/article-1614609288.jpg') }}" alt="Nos plats" title="Nos plats" class="w-100 img_home">
-                    <div class="col-12 text-center p-2"><a href="{{ path('carte') }}?categ1=plats" class="btn btn-dark">Nos plats</a></div>
+                    <div class="col-12 text-center p-2"><a href="{{ path('carte') }}?categ1=plats" class="btn btn-dark mb-5">Nos plats</a></div>
                 </div>
                 <div class="col-xs-12 col-md-3 my-auto">
                     <img src="{{ asset('img/articles/article-1614611089.jpg') }}" alt="Nos desserts" title="Nos desserts" class="w-100 img_home">
-                    <div class="col-12 text-center p-2"><a href="{{ path('carte') }}?categ1=desserts" class="btn btn-dark">Nos desserts</a></div>
+                    <div class="col-12 text-center p-2"><a href="{{ path('carte') }}?categ1=desserts" class="btn btn-dark mb-5">Nos desserts</a></div>
                 </div>
             </div>
         </div>
