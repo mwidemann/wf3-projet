@@ -40,7 +40,7 @@
                 {% for elem in catMenus %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
-                <a href="?categ1=plats">Tous nos menus</a>
+                <a href="?categ1=menus">Tous nos menus</a>
             </div>
             <hr>
             <button class="dropdown-btn">Accompagnements<i class="fa fa-caret-down"></i></button>
@@ -48,21 +48,21 @@
                 {% for elem in catAccompagnements %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
-                <a href="?categ1=plats">Tous nos accompagnements</a>
+                <a href="?categ1=accompagnements">Tous nos accompagnements</a>
             </div>            
               <button class="dropdown-btn">Boissons<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
                 {% for elem in catBoissons %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
                 {% endfor %}
-                <a href="?categ1=plats">Toutes nos boissons</a>
+                <a href="?categ1=boissons">Toutes nos boissons</a>
             </div>
             <hr>
             <button class="dropdown-btn">Desserts<i class="fa fa-caret-down"></i></button>
             <div class="dropdown-container">
-                {% for elem in catDesserts %}
+                {# {% for elem in catDesserts %}
                     <a href="?categ2={{ elem.cat2 }}">{{ elem.cat2|capitalize }}</a>
-                {% endfor %}
+                {% endfor %} #}
                 <a href="?categ1=plats">Tous nos desserts</a>
             </div>
         </div> 
@@ -98,6 +98,7 @@
                     <div class="col-xs-12 col-md-4 my-auto">
                         <img src="{{ asset('img/articles/') ~ article.photo }}" alt="{{ article.artNom }}" title="{{ article.artNom }}" class="w-100">
                         <span class="nom_plat"><strong>{{ article.artNom }}</strong></span>
+                        <span class="nom_plat"><strong>{{ article.prix }} €</strong></span>
                         <div class="descri_plat">{{ article.descri }}</div>
                         <br />
 
