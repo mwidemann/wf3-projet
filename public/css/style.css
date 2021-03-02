@@ -123,6 +123,13 @@ h1, h2
     padding-right: 0 !important;
 }
 
+.prix_plat
+{
+  color: #818181;
+  font-size: 20px;
+  float : right;
+}
+
 /*                        SIDEBAR ET DROPDOWN DE LA CARTE                       */
   .sidebar_pc a, .dropdown-btn {
     padding: 6px 8px 6px 16px;

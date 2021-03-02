@@ -98,7 +98,7 @@
                     <div class="col-xs-12 col-md-4 my-auto">
                         <img src="{{ asset('img/articles/') ~ article.photo }}" alt="{{ article.artNom }}" title="{{ article.artNom }}" class="w-100">
                         <span class="nom_plat"><strong>{{ article.artNom }}</strong></span>
-                        <span class="nom_plat"><strong>{{ article.prix }} €</strong></span>
+                        <span class="prix_plat"><strong>{{ article.prix }} €</strong></span>
                         <div class="descri_plat">{{ article.descri }}</div>
                         <br />
 
@@ -108,6 +108,7 @@
                         </div> #}
 
                         <div class="col-12 text-center p-2"><a href="{{ path('panier_add', {'id':article.id}) }}" class="btn btn-dark">Ajouter au panier</a></div>
+                        <hr>
                     </div>
 
  
