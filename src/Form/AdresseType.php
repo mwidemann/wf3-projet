@@ -17,7 +17,7 @@ class AdresseType extends AbstractType
     {
         $builder
             ->add('denomination', TextType::class, [
-                'label' => 'Adresse',
+                'label' => 'Nom de l\'adresse',
                 'attr' => [
                     'placeholder' => 'Ex.: Chez moi' 
                 ]
