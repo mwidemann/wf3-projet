@@ -42,6 +42,13 @@ body{
 
 }
 
+.fondBleu {
+  background-color: lightsteelblue;
+  border-radius: 10px;
+  opacity:0.9;
+  padding: 20px;
+}
+
 #top_plats
 {
   background-image: url("../img/top_plats.jpg");

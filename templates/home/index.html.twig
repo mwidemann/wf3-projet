@@ -31,9 +31,9 @@
 
         <!-- Version mobile -->
         <div class="align-self-center sous_section">
-            <div class="col-12 text-center">
+            {# <div class="col-12 text-center">
                 <h2>En avant cette semaine</h2>
-            </div>
+            </div> #}
 
             <div class="justify-content-around row col-md-12">
                 <div class="carousel-container col-xs-12 col-md-5" style="height:510px;">
@@ -73,9 +73,12 @@
                     </div>
                 </div>
                 <div id="slider_pc" class="carousel-container col-xs-12 col-md-5 text-center align-self-center">
-                    <h3>Nom du plat</h3>
-                    <br>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error voluptate similique facere ducimus aperiam dicta aliquid porro repellat numquam veniam, fugit beatae nobis quae modi at quibusdam ex corporis est!
+                    <div class="fondBleu">
+
+                        <h2>Quelques idées de plats...</h2>
+                        <br>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit illo sequi labore mollitia doloremque, enim explicabo, temporibus cumque fugit nemo, eaque earum! Assumenda dolor accusantium id voluptates saepe earum unde.</p>
+                    </div>
                 </div>
             </div>
             <!-- Régler les éventuels bugs d'affichage en forçant la taille de l'img avec du css-->
@@ -102,28 +105,29 @@
                     <div class="col-12 text-center p-2"><a href="{{ path('carte') }}?categ1=desserts" class="btn btn-dark">Nos desserts</a></div>
                 </div>
             </div>
+        </div>
             {# <div class="col-12 text-center p-3"><a href="#" class="btn btn-dark col-xs-12">Commander en ligne</a></div> #}
-        </section>
+    </section>
 
-        <section id="map" class="row for-scrollify">
-            <div class="align-self-center sous_section">
-                <div class="col-12 text-center"><h2>Informations</h2></center></div>
+    <section id="map" class="row for-scrollify">
+        <div class="align-self-center sous_section">
+            {# <div class="col-12 text-center"><h2>Informations</h2></center></div> #}
 
-                <div class="row align-self-center col-md-12 justify-content-around">
-                    <div class="col-xs-12 col-md-5 my-auto">
-                        <img src="https://www.kpmindustries.com/wp-content/uploads/2018/08/Placeholder-Map-Image-768x409.png" alt="lorem ipsum" title="lorem ipsum" class="w-100 img_home">
-                    </div>
-                    <div class="col-xs-12 col-md-5 text-center">
-                        <p>12 rue du Village</p>
-                        <p>12345 Ville</p>
-                        <p>01.23.45.67.89</p>
-                        <p>prenom.nom@domaine.com</p>
-                        <p>Horaires</p>
-                        <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem itaque sapiente a molestiae asperiores magni tenetur sint eum omnis optio.</div>
-                        <br>
-                        <a href="{{ path('home') }}#contact" class="btn btn-dark">Nous contacter</a>
-                    </div>  
+            <div class="row align-self-center col-md-12 justify-content-around">
+                <div class="col-xs-12 col-md-5 my-auto">
+                    <img src="https://www.kpmindustries.com/wp-content/uploads/2018/08/Placeholder-Map-Image-768x409.png" alt="lorem ipsum" title="lorem ipsum" class="w-100 img_home">
                 </div>
+                <div class="col-xs-12 col-md-5 text-center fondBleu">
+                    <h2 class="pb-3">Informations</h2>
+                    <p>12 rue du Village</p>
+                    <p>12345 Ville</p>
+                    <p>01.23.45.67.89</p>
+                    <p>prenom.nom@domaine.com</p>
+                    <p>Horaires</p>
+                    <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem itaque sapiente a molestiae asperiores magni tenetur sint eum omnis optio.</div>
+                    <br>
+                    <a href="{{ path('home') }}#contact" class="btn btn-dark">Nous contacter</a>
+                </div>  
             </div>
         </div>
     </section>
