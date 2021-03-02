@@ -24,7 +24,7 @@ class HomeController extends AbstractController
             $contact = $contactForm->getData();
             $mail = (new \Swift_Message('Sushi - contact'))
                 ->setFrom($contact['email'])
-                ->setTo('prospercolugo@gmail.com') 
+                ->setTo('antoine.trisse@gmail.com') 
                 ->setBody(
                     $this->renderView(
                         'home/emailContact.html.twig', [
