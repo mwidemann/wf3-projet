@@ -6,7 +6,7 @@ Dans le cadre de notre formation "Développeur Web et Web Mobile" au sein de l'�
 
 ## Fonctionnalités actuelles
 
-- Commander en ligne et se faire livrer
+- Commander en ligne pour se faire livrer
 - Gestion des utilisateurs (inscription, connexion, droits)
 - Espace administrateur
 - Formulaire de contact
