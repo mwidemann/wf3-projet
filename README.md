@@ -4,7 +4,7 @@
 
 Dans le cadre de notre formation "Développeur Web et Web Mobile" au sein de l'école WebForce3, nous avons réalisé le site web d'un restaurant japonais (fictif).
 
-## Fonctionnalitées actuelles
+## Fonctionnalités actuelles
 
 - Commander en ligne et se faire livrer
 - Gestion des utilisateurs (inscription, connexion, droits)
