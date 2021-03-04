@@ -1,4 +1,4 @@
-# Pojet de fin de formation WebForce3
+# Pojet de formation WebForce3
 
 ## Site web pour restaurant japonais - HOKUTO (encore en développement)
 
